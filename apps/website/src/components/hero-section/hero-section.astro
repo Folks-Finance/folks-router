@@ -1,0 +1,33 @@
+---
+import { t } from "i18next";
+
+import { WidgetCard } from "@components/hero-section/widget-card/widget-card";
+---
+
+<section
+  class="layout-container relative z-10 flex h-full w-full flex-col gap-y-16 pt-7 tablet:h-[calc(100vh-6rem)] tablet:flex-row tablet:pt-0"
+>
+  <div class="flex h-full flex-col justify-center gap-y-10 tablet:w-1/2 tablet:gap-y-16">
+    <h1
+      class="text-4xl leading-[3rem] text-base-content tablet:max-w-[22rem] tablet:text-[2.5rem] tablet:leading-[3.5rem] lg:max-w-[27rem] lg:text-5xl lg:leading-[3.875rem]"
+    >
+      {t("hero-section.title")}{" "}
+      <span class="font-semibold tablet:block">{t("hero-section.folks-router")}</span>
+    </h1>
+    <p class="w-full text-light-1 tablet:max-w-[20rem] tablet:text-sm tablet:leading-6 lg:max-w-[25rem] lg:text-lg">
+      {t("hero-section.paragraph")}
+    </p>
+  </div>
+  <div class="flex h-full items-center justify-center pb-20 tablet:w-1/2 tablet:justify-end tablet:pb-0">
+    <WidgetCard client:load>
+      <picture>
+        <source media="(max-width:1024px)" srcset="/card-back-content-mobile.png" />
+        <img
+          src="/card-back-content-desktop.png"
+          alt="Graphical explanation on how Folks Router works"
+          class="object-contain"
+        />
+      </picture>
+    </WidgetCard>
+  </div>
+</section>

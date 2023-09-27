@@ -1,0 +1,126 @@
+---
+import { Image } from "astro:assets";
+import { t } from "i18next";
+
+import FolksFinanceLogoDesktop from "@assets/images/ff-logo-desktop.svg";
+import FolksFinanceLogoMobile from "@assets/images/ff-logo-mobile.svg";
+
+import BorrowIcon from "~icons/manage-your-assets-icons/borrow.svg";
+import GovernIcon from "~icons/manage-your-assets-icons/govern.svg";
+import LearnIcon from "~icons/manage-your-assets-icons/learn.svg";
+import LendIcon from "~icons/manage-your-assets-icons/lend.svg";
+---
+
+<style>
+  #cards {
+    @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-4;
+  }
+  .card {
+    @apply relative rounded-2xl bg-light-1/30;
+  }
+  .card-content {
+    @apply relative z-[2] m-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-base-1 p-7 gap-7 flex flex-row lg:flex-col lg:items-start items-center;
+  }
+  #cards:hover > .card::after,
+  .card:hover::before {
+    @apply opacity-100;
+  }
+  .card::before,
+  .card::after {
+    @apply content-[""] rounded-2xl h-full w-full absolute left-0 top-0 opacity-0 transition-opacity duration-500;
+  }
+  .card::before {
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.1),
+      transparent 40%
+    );
+    @apply z-[3];
+  }
+  .card::after {
+    background: radial-gradient(
+      400px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.4),
+      transparent 40%
+    );
+    @apply z-[1];
+  }
+</style>
+
+<section class="bg-base-2 pb-10 tablet:pb-24">
+  <div class="layout-container flex flex-col gap-y-10 tablet:gap-y-12">
+    <div
+      class="flex w-full flex-col items-start justify-center gap-x-10 gap-y-7 tablet:flex-row tablet:items-center tablet:justify-between tablet:gap-y-0"
+    >
+      <Image src={FolksFinanceLogoDesktop} alt="Folks Finance Logo" class="hidden tablet:block tablet:w-80 lg:w-96" />
+      <div class="flex w-full flex-col gap-y-7 tablet:w-1/2 lg:w-5/12">
+        <h2 class="flex items-center gap-x-5 text-3xl text-base-content lg:text-4xl lg:leading-[3rem]">
+          <Image src={FolksFinanceLogoMobile} alt="Folks Finance Logo" class="h-16 w-16 tablet:hidden" />
+          {t("manage-your-assets.title")}
+        </h2>
+        <p class="text-light-1 tablet:text-lg">
+          {t("manage-your-assets.paragraph")}
+        </p>
+      </div>
+    </div>
+    <div id="cards">
+      <a href="https://app.folks.finance/deposit" target="_blank" rel="noopener" class="card">
+        <div class="card-content">
+          <LendIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
+          <div class="flex flex-col gap-y-2">
+            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-1")}</h3>
+            <p class="text-light-1">{t("manage-your-assets.card-description-1")}</p>
+          </div>
+        </div>
+      </a>
+      <a href="https://app.folks.finance/loans" target="_blank" rel="noopener" class="card">
+        <div class="card-content">
+          <BorrowIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
+          <div class="flex flex-col gap-y-2">
+            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-2")}</h3>
+            <p class="text-light-1">{t("manage-your-assets.card-description-2")}</p>
+          </div>
+        </div>
+      </a>
+      <a href="https://app.folks.finance/algo-liquid-governance" target="_blank" rel="noopener" class="card">
+        <div class="card-content">
+          <GovernIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
+          <div class="flex flex-col gap-y-2">
+            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-3")}</h3>
+            <p class="text-light-1">{t("manage-your-assets.card-description-3")}</p>
+          </div>
+        </div>
+      </a>
+      <a href="https://academy.folks.finance/" target="_blank" rel="noopener" class="card">
+        <div class="card-content">
+          <LearnIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
+          <div class="flex flex-col gap-y-2">
+            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-4")}</h3>
+            <p class="text-light-1">{t("manage-your-assets.card-description-4")}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function handleMouseHover() {
+    const cardsWrapper = document.getElementById("cards");
+    const cards = document.querySelectorAll<HTMLAnchorElement>(".card");
+    if (!cardsWrapper) return;
+
+    cardsWrapper.onmousemove = (e) => {
+      for (const card of cards) {
+        const rect = card.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      }
+    };
+  }
+
+  handleMouseHover();
+</script>

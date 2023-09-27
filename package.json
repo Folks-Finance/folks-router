@@ -5,11 +5,12 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*\" --ignore-unknown"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
     "tsconfig": "workspace:*",
     "turbo": "^1.10.14"
   },

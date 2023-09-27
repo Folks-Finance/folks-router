@@ -1,0 +1,29 @@
+---
+import "tailwindcss/src/css/preflight.css";
+import "src/tailwind.css";
+import { HeadHrefLangs } from "astro-i18next/components";
+import i18next from "i18next";
+
+import Footer from "@components/footer/footer.astro";
+import Header from "@components/header/header.astro";
+
+const { title } = Astro.props;
+---
+
+<html lang={i18next.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.png" />
+    <title>Folks Router | {title}</title>
+    <HeadHrefLangs />
+  </head>
+  <body class="relative overflow-x-hidden bg-base-1 font-sans">
+    <Header />
+    <!-- pt is set according to the height of the header -->
+    <main class="pt-[4.5rem] tablet:pt-24">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

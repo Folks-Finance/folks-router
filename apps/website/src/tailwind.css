@@ -1,0 +1,35 @@
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 0 106 199;
+  --primary-content: 255 255 255;
+  --light-1: 178 178 189;
+  --light-2: 145 150 161;
+  --light-content: 0 0 0;
+  --base-1: 35 35 41;
+  --base-2: 28 28 33;
+  --base-3: 16 19 29;
+  --base-content: 255 255 255;
+  --widget-timer: 252 188 35;
+  --widget-success: 110 181 139;
+  --widget-light-1: 211 211 217;
+  --widget-light-2: 166 173 187;
+  --widget-light-content: 0 0 0;
+  --widget-base-1: 45 45 48;
+  --widget-base-2: 37 37 38;
+  --widget-base-content: 255 255 255;
+}
+
+@layer components {
+  .layout-container {
+    @apply px-6 tablet:px-5 mx-auto w-full max-w-7xl;
+  }
+}

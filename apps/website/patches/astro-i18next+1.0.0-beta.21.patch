@@ -1,0 +1,25 @@
+diff --git a/node_modules/astro-i18next/package.json b/node_modules/astro-i18next/package.json
+index c353950..c54d738 100644
+--- a/node_modules/astro-i18next/package.json
++++ b/node_modules/astro-i18next/package.json
+@@ -31,8 +31,18 @@
+   "main": "./dist/index.js",
+   "types": "./dist/types/index.d.ts",
+   "exports": {
+-    ".": "./dist/index.js",
+-    "./components": "./src/components/index.ts"
++    ".": {
++      "import": {
++        "types": "./dist/types/index.d.ts",
++        "default": "./dist/index.js"
++      }
++    },
++    "./components": {
++      "import": {
++        "types": "./src/components/index.d.ts",
++        "default": "./src/components/index.ts"
++      }
++    }
+   },
+   "typesVersions": {
+     "*": {
