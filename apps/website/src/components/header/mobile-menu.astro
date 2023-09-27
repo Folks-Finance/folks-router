@@ -1,10 +1,7 @@
 ---
 import { localizePath } from "astro-i18next";
-import i18next, { t } from "i18next";
+import { t } from "i18next";
 
-import { languageMapping } from "@components/header/language-dropdown/types";
-
-import CheckIcon from "~icons/lucide/check.svg";
 import DiscordIcon from "~icons/social-icons/discord.svg";
 import FacebookIcon from "~icons/social-icons/facebook.svg";
 import GithubIcon from "~icons/social-icons/github.svg";
@@ -58,10 +55,6 @@ const socialItems = [
     Icon: InstagramIcon,
   },
 ];
-
-const { pathname } = Astro.url;
-const supportedLanguages = i18next.languages;
-const currentLanguage = i18next.language;
 ---
 
 <div class="flex w-1/2 items-center justify-end tablet:hidden">
@@ -134,35 +127,6 @@ const currentLanguage = i18next.language;
                 </a>
               </div>
             ))
-          }
-        </li>
-      </ul>
-      <ul class="flex flex-col gap-y-4">
-        <li class="flex w-full items-center gap-x-2">
-          <h3 class="whitespace-nowrap text-xs tracking-wider text-light-2">{t("language-dropdown.label")}</h3>
-          <div class="h-[1px] w-full bg-light-2"></div>
-        </li>
-        <li class="flex w-full flex-col items-center justify-between gap-y-4">
-          {
-            supportedLanguages.map((supportedLanguage: string) => {
-              const href = localizePath(pathname, supportedLanguage);
-              const label = languageMapping[supportedLanguage]?.label;
-              const Icon = languageMapping[supportedLanguage]?.Icon;
-
-              return (
-                <a href={href} class="group/language-item flex w-full items-center justify-between">
-                  <div class="flex w-full gap-x-4">
-                    {Icon && <Icon className="h-6 w-6 rounded-full" />}
-                    {label && (
-                      <span class="relative text-base-content transition-all duration-700 before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-0 before:rounded-full before:bg-base-content before:bg-gradient-to-r before:opacity-0 before:transition-all before:duration-700 before:content-[''] group-hover/language-item:before:w-full group-hover/language-item:before:opacity-100">
-                        {label}
-                      </span>
-                    )}
-                  </div>
-                  {supportedLanguage === currentLanguage && <CheckIcon className="h-4 w-4 text-base-content" />}
-                </a>
-              );
-            })
           }
         </li>
       </ul>

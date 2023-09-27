@@ -23,9 +23,6 @@ export default defineConfig({
           label: "English",
           lang: "en",
         },
-        it: {
-          label: "Italiano",
-        },
       },
       social: {
         github: "https://github.com/withastro/starlight",
