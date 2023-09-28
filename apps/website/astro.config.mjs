@@ -45,7 +45,9 @@ export default defineConfig({
         },
       },
       defaultLocale: "root",
-      social: {},
+      social: {
+        github: "https://github.com/Folks-Finance/folks-router",
+      },
       customCss: ["./src/tailwind.css"],
       pagination: false,
       favicon: "/favicon.png",
