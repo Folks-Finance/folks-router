@@ -3,16 +3,24 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "keywords": [
+    "Folks Router",
+    "Folks Finance",
+    "Algorand"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && tsc",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "algosdk": "^2.6.0"
+  },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "tsconfig": "workspace:*"
-  }
+    "tsconfig": "workspace:*",
+    "typedoc": "^0.25.1",
+    "typescript": "^5.2.2"
+  },
+  "author": "Folks Finance",
+  "license": "MIT"
 }
