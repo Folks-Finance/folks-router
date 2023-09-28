@@ -12,35 +12,43 @@ export default defineConfig({
   site: "https://blockchain-italia.github.io",
   integrations: [
     starlight({
-      title: "Folks Router",
-      favicon: "/favicon.png",
+      title: "",
       logo: {
         src: "/src/assets/images/folks-router-logo.png",
       },
-      defaultLocale: "root",
+      sidebar: [
+        {
+          label: "Introduction",
+          link: "docs/introduction",
+        },
+        {
+          label: "Fees",
+          link: "docs/fees",
+        },
+        {
+          label: "Referral Program",
+          link: "docs/referral-program",
+        },
+        {
+          label: "API",
+          link: "docs/api",
+        },
+        {
+          label: "Contracts",
+          link: "docs/contracts",
+        },
+      ],
       locales: {
         root: {
           label: "English",
           lang: "en",
         },
       },
-      social: {
-        github: "https://github.com/withastro/starlight",
-      },
-      sidebar: [
-        {
-          label: "SDK",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Install", link: "docs/sdk/install" },
-          ],
-        },
-        {
-          label: "Swap Widget",
-          autogenerate: { directory: "docs/swap-widget" },
-        },
-      ],
+      defaultLocale: "root",
+      social: {},
       customCss: ["./src/tailwind.css"],
+      pagination: false,
+      favicon: "/favicon.png",
     }),
     tailwind({ applyBaseStyles: false }),
     react(),
