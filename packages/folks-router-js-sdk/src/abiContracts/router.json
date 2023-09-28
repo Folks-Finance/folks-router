@@ -1,0 +1,94 @@
+{
+  "name": "router",
+  "methods": [
+    {
+      "name": "opt_into_assets",
+      "args": [
+        {
+          "type": "uint64[]",
+          "name": "opt_in_assets"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "swap_forward",
+      "args": [
+        {
+          "type": "uint64",
+          "name": "end_swap_txn_offset_index"
+        },
+        {
+          "type": "uint64",
+          "name": "input_asset_id"
+        },
+        {
+          "type": "uint64",
+          "name": "percent_input_asset"
+        },
+        {
+          "type": "(uint64,bool,uint64,uint64,uint64,address,uint64,uint64,address,address,uint64,uint64)[]",
+          "name": "forward_path"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "fi_end_swap",
+      "args": [
+        {
+          "type": "uint64",
+          "name": "output_asset_id"
+        },
+        {
+          "type": "uint64",
+          "name": "min_received"
+        },
+        {
+          "type": "uint64",
+          "name": "fee"
+        },
+        {
+          "type": "address",
+          "name": "referrer"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "fo_end_swap",
+      "args": [
+        {
+          "type": "uint64",
+          "name": "output_asset_id"
+        },
+        {
+          "type": "uint64",
+          "name": "exact_received"
+        },
+        {
+          "type": "uint64",
+          "name": "fee"
+        },
+        {
+          "type": "address",
+          "name": "referrer"
+        },
+        {
+          "type": "(uint64,bool,uint64,uint64,uint64,address,uint64,uint64,address,address,uint64,uint64)[]",
+          "name": "excess_path"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    }
+  ],
+  "networks": {}
+}
