@@ -8,9 +8,10 @@
     "outDir": "dist",
     "declarationDir": "dist/types",
     "sourceMap": true,
+    "isolatedModules": false,
     "exactOptionalPropertyTypes": false,
     "resolveJsonModule": true,
   },
-  "include": ["./src/index.ts"],
+  "include": ["./src/index.ts", "./examples/*"],
   "exclude": ["dist", "build", "node_modules"]
 }
