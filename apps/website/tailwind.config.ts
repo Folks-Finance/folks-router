@@ -35,7 +35,7 @@ const gray = {
 const withOpacity = (variableName: string) => `rgb(var(${variableName}) / <alpha-value>)`;
 
 const config = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}", "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
       xs: "520px",
@@ -71,6 +71,52 @@ const config = {
         // Starlight Colors
         accent,
         gray,
+        // Tremor Colors
+        tremor: {
+          brand: {
+            faint: withOpacity("--primary"),
+            muted: "#b9ddfe",
+            subtle: "#36a4fa",
+            DEFAULT: withOpacity("--primary"),
+            emphasis: "#0154a3",
+            inverted: withOpacity("--base-2"),
+          },
+          background: {
+            muted: "#f7f7f8",
+            subtle: "#eeeef0",
+            DEFAULT: withOpacity("--base-2"),
+            emphasis: "#4a4a5a",
+          },
+          border: {
+            DEFAULT: withOpacity("--light-1"),
+          },
+          ring: {
+            DEFAULT: withOpacity("--light-1"),
+          },
+          content: {
+            subtle: withOpacity("--light-1"),
+            DEFAULT: withOpacity("--base-content"),
+            emphasis: withOpacity("--base-content"),
+            strong: withOpacity("--base-content"),
+            inverted: withOpacity("--base-2"),
+          },
+        },
+      },
+      boxShadow: {
+        "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "tremor-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "tremor-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      },
+      borderRadius: {
+        "tremor-small": "0.375rem",
+        "tremor-default": "0.5rem",
+        "tremor-full": "9999px",
+      },
+      fontSize: {
+        "tremor-label": ["0.75rem", { lineHeight: "1rem" }],
+        "tremor-default": ["0.875rem", { lineHeight: "1.25rem" }],
+        "tremor-title": ["1.125rem", { lineHeight: "1.75rem" }],
+        "tremor-metric": ["1.875rem", { lineHeight: "2.25rem" }],
       },
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],
@@ -86,6 +132,35 @@ const config = {
       },
     },
   },
+  safelist: [
+    {
+      pattern:
+        /^(bg-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
+      variants: ["hover", "ui-selected"],
+    },
+    {
+      pattern:
+        /^(text-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
+      variants: ["hover", "ui-selected"],
+    },
+    {
+      pattern:
+        /^(border-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
+      variants: ["hover", "ui-selected"],
+    },
+    {
+      pattern:
+        /^(ring-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
+    },
+    {
+      pattern:
+        /^(stroke-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
+    },
+    {
+      pattern:
+        /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
+    },
+  ],
   plugins: [StarlightTailwindPlugin(), require("tailwindcss-3d")],
 } satisfies Config;
 
