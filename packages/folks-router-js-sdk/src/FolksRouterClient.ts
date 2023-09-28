@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios, { AxiosInstance} from "axios";
 import { Network, SwapMode, SwapQuote, SwapTransactions } from "./types";
 
 const BASE_URL = "https://api.folksrouter.io";
 
 export class FolksRouterClient {
   private readonly network: Network;
-  private readonly url: string;
+  private readonly api: AxiosInstance;
 
   constructor(network: Network, apiKey?: string) {
     // construct url
@@ -14,12 +14,11 @@ export class FolksRouterClient {
     url += "/v1";
     if (apiKey !== undefined) {
       url += "/pro";
-      axios.defaults.headers.common['x-api-key'] = apiKey;
     }
 
     // set
     this.network = network;
-    this.url = url;
+    this.api = axios.create({ baseURL: url, headers: { "x-api-key": apiKey }});
   }
 
   public async fetchSwapQuote(
@@ -31,7 +30,7 @@ export class FolksRouterClient {
     feeBps?: number | bigint,
     referrer?: string,
   ): Promise<SwapQuote> {
-    const { data } = await axios.get(`${this.url}/fetch/quote`, {
+    const { data } = await this.api.get("/fetch/quote", {
       params: {
         network: this.network,
         fromAsset: fromAssetId,
@@ -60,7 +59,7 @@ export class FolksRouterClient {
     slippageBps: number | bigint,
     swapQuote: SwapQuote,
   ): Promise<SwapTransactions> {
-    const { data } = await axios.get(`${this.url}/prepare/swap`, {
+    const { data } = await this.api.get("/prepare/swap", {
       params: {
         userAddress,
         slippageBps,
