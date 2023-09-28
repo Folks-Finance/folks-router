@@ -23,12 +23,6 @@ importers:
       turbo:
         specifier: ^1.10.14
         version: 1.10.14
-      typedoc:
-        specifier: ^0.25.1
-        version: 0.25.1(typescript@5.2.2)
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
 
   apps/website:
     dependencies:
@@ -160,6 +154,9 @@ importers:
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
+      typedoc:
+        specifier: ^0.25.1
+        version: 0.25.1(typescript@5.2.2)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
