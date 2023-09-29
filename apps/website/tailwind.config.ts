@@ -74,42 +74,42 @@ const config = {
         // Tremor Colors
         tremor: {
           brand: {
-            faint: withOpacity("--primary"),
+            faint: "rgb(var(--primary))",
             muted: "#b9ddfe",
             subtle: "#36a4fa",
-            DEFAULT: withOpacity("--primary"),
+            DEFAULT: "rgb(var(--primary))",
             emphasis: "#0154a3",
-            inverted: withOpacity("--base-2"),
+            inverted: "rgb(var(--base-2))",
           },
           background: {
             muted: "#f7f7f8",
             subtle: "#eeeef0",
-            DEFAULT: withOpacity("--base-2"),
+            DEFAULT: "rgb(var(--base-2))",
             emphasis: "#4a4a5a",
           },
           border: {
-            DEFAULT: withOpacity("--light-1"),
+            DEFAULT: "rgb(var(--light-1)/0.3)",
           },
           ring: {
-            DEFAULT: withOpacity("--light-1"),
+            DEFAULT: "transparent",
           },
           content: {
-            subtle: withOpacity("--light-1"),
-            DEFAULT: withOpacity("--base-content"),
-            emphasis: withOpacity("--base-content"),
-            strong: withOpacity("--base-content"),
-            inverted: withOpacity("--base-2"),
+            subtle: "rgb(var(--light-2))",
+            DEFAULT: "rgb(var(--light-1))",
+            emphasis: "rgb(var(--base-content))",
+            strong: "rgb(var(--base-content))",
+            inverted: "rgb(var(--light-content))",
           },
         },
       },
       boxShadow: {
-        "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        "tremor-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "tremor-card":
+          "0 1px 1px rgba(0,0,0,0.15), 0 2px 2px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.15), 0 6px 8px rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.15)",
         "tremor-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       },
       borderRadius: {
         "tremor-small": "0.375rem",
-        "tremor-default": "0.5rem",
+        "tremor-default": "1rem",
         "tremor-full": "9999px",
       },
       fontSize: {
