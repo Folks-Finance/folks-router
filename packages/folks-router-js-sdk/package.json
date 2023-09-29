@@ -11,12 +11,16 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "npm run clean && tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "example": "ts-node --project tsconfig.json"
   },
   "dependencies": {
-    "algosdk": "^2.6.0"
+    "algosdk": "^2.6.0",
+    "axios": "^1.5.1"
   },
   "devDependencies": {
+    "@types/node": "^20.7.1",
+    "ts-node": "^10.9.1",
     "tsconfig": "workspace:*",
     "typedoc": "^0.25.1",
     "typescript": "^5.2.2"

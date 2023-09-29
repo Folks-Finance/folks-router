@@ -6,3 +6,5 @@ export * from "./abiContracts";
 
 export * from "./constants/mainnetConstants";
 export * from "./constants/testnetConstants";
+
+export * from "./FolksRouterClient";
