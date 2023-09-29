@@ -2,15 +2,29 @@
   "name": "@folks-router/js-sdk",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "Folks Router",
     "Folks Finance",
     "Algorand"
   ],
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "build": "npm run clean && tsc",
+    "build": "tsup",
     "typecheck": "tsc --noEmit",
     "example": "ts-node --project tsconfig.json"
   },
@@ -22,6 +36,7 @@
     "@types/node": "^20.7.1",
     "ts-node": "^10.9.1",
     "tsconfig": "workspace:*",
+    "tsup": "^7.2.0",
     "typedoc": "^0.25.1",
     "typescript": "^5.2.2"
   },
