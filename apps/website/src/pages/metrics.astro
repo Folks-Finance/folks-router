@@ -1,13 +1,12 @@
 ---
 import { changeLanguage } from "i18next";
 
+import { MetricsDashboard } from "@components/metrics-dashboard/metrics-dashboard";
 import BaseLayout from "src/layout/base-layout.astro";
 
 changeLanguage("en");
 ---
 
 <BaseLayout title="Metrics">
-  <div class="h-[calc(100vh-4.5rem-5.25rem)] w-full tablet:h-[calc(100vh-6rem-5.25rem)]">
-    <p class="flex h-full w-full animate-pulse items-center justify-center text-5xl text-base-content">Coming Soon</p>
-  </div>
+  <MetricsDashboard client:load />
 </BaseLayout>
