@@ -83,7 +83,7 @@ const config = {
           },
           background: {
             muted: "#f7f7f8",
-            subtle: "#eeeef0",
+            subtle: "rgb(var(--base-1))",
             DEFAULT: "rgb(var(--base-2))",
             emphasis: "#4a4a5a",
           },
