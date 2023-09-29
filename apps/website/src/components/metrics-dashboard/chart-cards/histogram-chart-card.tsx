@@ -1,6 +1,6 @@
 import { Card, BarChart, TabGroup, TabList, Tab } from "@tremor/react";
 
-import { timeframes } from "@components/chart-cards/types";
+import { timeframes } from "@components/metrics-dashboard/types";
 
 import type { BarChartProps } from "@tremor/react";
 import type { Dispatch, SetStateAction } from "react";
@@ -17,13 +17,13 @@ export const HistogramChartCard = ({
   setSelectedTimeframeIndex,
   ...props
 }: HistogramChartProps) => (
-  <Card className="flex flex-col gap-y-7 p-7">
-    <div className="flex items-center">
-      <h2 className="w-1/2 text-2xl text-base-content">{title}</h2>
+  <Card className="flex flex-col gap-y-8 p-7">
+    <div className="flex flex-col items-center gap-y-4 tablet:flex-row">
+      <h2 className="teblet:w-1/2 w-full text-center text-2xl text-base-content tablet:text-left">{title}</h2>
       <TabGroup
         index={selectedTimeframeIndex}
         onIndexChange={setSelectedTimeframeIndex}
-        className="flex w-1/2 justify-end"
+        className="teblet:w-1/2 flex w-full items-center justify-center tablet:justify-end"
       >
         <TabList variant="solid" className="!rounded-md p-1.5">
           {timeframes.map((timeframe) => (
