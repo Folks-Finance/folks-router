@@ -1,4 +1,7 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Grid, Col } from "@tremor/react";
+import { useState } from "react";
 
 import { HistogramChartCard } from "@components/chart-cards/histogram-chart-card";
 import { LineChartCard } from "@components/chart-cards/line-chart-card";
@@ -68,40 +71,46 @@ const histogramChartData2 = [
 ];
 
 export const MetricsDashboard = () => {
-  return (
-    <div className="layout-container flex flex-col gap-y-10 pt-3.5 tablet:gap-y-16 tablet:pt-5">
-      <h1 className="text-center text-3xl font-semibold text-base-content tablet:text-4xl">Folks Router Metrics</h1>
+  const [queryClient] = useState(() => new QueryClient());
 
-      <Grid numItems={1} numItemsSm={1} numItemsLg={2} className="gap-6">
-        <Col>
-          <HistogramChartCard
-            title="Lorem ipsum dolor sit amet"
-            subtitle="Nam sit amet justo nulla. Quisque at ante lacus. Proin fringilla, ex accumsan rhoncus finibus, quam purus feugiat nisi, at dictum enim arcu vel nisi."
-            index="name"
-            data={histogramChartData}
-            categories={["Number of threatened species"]}
-            colors={["teal"]}
-          />
-        </Col>
-        <Col>
-          <LineChartCard
-            title="Lorem ipsum dolor sit amet"
-            subtitle="Nam sit amet justo nulla. Quisque at ante lacus. Proin fringilla, ex accumsan rhoncus finibus, quam purus feugiat nisi, at dictum enim arcu vel nisi."
-            index="year"
-            data={lineChartdata}
-            categories={["Export Growth Rate", "Import Growth Rate"]}
-            colors={["amber", "rose"]}
-          />
-        </Col>
-        <Col numColSpan={1} numColSpanLg={2}>
-          <HistogramChartCard
-            index="name"
-            data={histogramChartData2}
-            categories={["Group A", "Group B", "Group C", "Group D", "Group E", "Group F"]}
-            colors={["blue", "teal", "amber", "rose", "indigo", "emerald"]}
-          />
-        </Col>
-      </Grid>
-    </div>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+
+      <div className="layout-container flex flex-col gap-y-10 pt-3.5 tablet:gap-y-16 tablet:pt-5">
+        <h1 className="text-center text-3xl font-semibold text-base-content tablet:text-4xl">Folks Router Metrics</h1>
+
+        <Grid numItems={1} numItemsSm={1} numItemsLg={2} className="gap-6">
+          <Col>
+            <HistogramChartCard
+              title="Lorem ipsum dolor sit amet"
+              subtitle="Nam sit amet justo nulla. Quisque at ante lacus. Proin fringilla, ex accumsan rhoncus finibus, quam purus feugiat nisi, at dictum enim arcu vel nisi."
+              index="name"
+              data={histogramChartData}
+              categories={["Number of threatened species"]}
+              colors={["teal"]}
+            />
+          </Col>
+          <Col>
+            <LineChartCard
+              title="Lorem ipsum dolor sit amet"
+              subtitle="Nam sit amet justo nulla. Quisque at ante lacus. Proin fringilla, ex accumsan rhoncus finibus, quam purus feugiat nisi, at dictum enim arcu vel nisi."
+              index="year"
+              data={lineChartdata}
+              categories={["Export Growth Rate", "Import Growth Rate"]}
+              colors={["amber", "rose"]}
+            />
+          </Col>
+          <Col numColSpan={1} numColSpanLg={2}>
+            <HistogramChartCard
+              index="name"
+              data={histogramChartData2}
+              categories={["Group A", "Group B", "Group C", "Group D", "Group E", "Group F"]}
+              colors={["blue", "teal", "amber", "rose", "indigo", "emerald"]}
+            />
+          </Col>
+        </Grid>
+      </div>
+    </QueryClientProvider>
   );
 };
