@@ -6,6 +6,9 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "check-exports": {
+      "dependsOn": ["build"]
+    },
     "lint": {},
     "dev": {
       "cache": false,
