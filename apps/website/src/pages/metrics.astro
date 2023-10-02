@@ -7,7 +7,7 @@ changeLanguage("en");
 ---
 
 <BaseLayout title="Metrics">
-  <div id="metrics-wrapper">
+  <div id="metrics-wrapper" class="invisible">
     <h1 class="flex h-full w-full animate-pulse items-center justify-center text-5xl text-base-content">Coming Soon</h1>
   </div>
 </BaseLayout>
@@ -22,6 +22,8 @@ changeLanguage("en");
     metricsWrapper.style.height = `calc(100vh - ${getComputedStyle(header).height} - ${
       getComputedStyle(footer).height
     })`;
+    metricsWrapper.classList.remove("invisible");
+    footer.classList.remove("invisible");
   }
 
   calculateDynamicPageHeight();
