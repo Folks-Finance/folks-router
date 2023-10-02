@@ -37,6 +37,13 @@ export default defineConfig({
           label: "Contracts",
           link: "docs/contracts",
         },
+        {
+          label: "SDK",
+          items: [
+            { label: "Getting Started", link: "docs/sdk/getting-started" },
+            { label: "Code Example", link: "docs/sdk/code-example" },
+          ],
+        },
       ],
       locales: {
         root: {
