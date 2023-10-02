@@ -6,10 +6,17 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "check-exports": {
+      "dependsOn": ["build"]
+    },
     "lint": {},
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "publish": {
+      "dependsOn": ["build", "check-exports", "lint"],
+      "cache": false
     }
   }
 }
