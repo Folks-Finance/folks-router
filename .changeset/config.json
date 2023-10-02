@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@folks-router/website", "eslint-config-custom", "tsconfig"]
+  "ignore": ["@folks-router/website"]
 }
