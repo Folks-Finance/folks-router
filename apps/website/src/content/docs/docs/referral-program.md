@@ -15,8 +15,8 @@ You also have control to increase the fee using the “feeBps” parameter in th
 
 The fees earned do not go directly to the “referrer” address but rather an intermediate escrow which you can claim them from. This is because the Algorand Blockchain requires an account to opt-in to an asset before they can receive it so using an intermediate escrow allows for permissionless adding of new assets.
 
-You can use the SDK to add a new asset to your escrow account TODO_GITHUB_LINK.
+You can use the SDK to add a new asset to your escrow account (see [Github](https://github.com/Folks-Finance/folks-router/tree/main/packages/folks-router-js-sdk)).
 
 ### How to claim fees?
 
-You can use the SDK to claim the fees in your escrow account TODO_GITHUB_LINK.
+You can use the SDK to claim the fees in your escrow account (see [Github](https://github.com/Folks-Finance/folks-router/tree/main/packages/folks-router-js-sdk)).
