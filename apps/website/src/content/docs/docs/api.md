@@ -1,6 +1,6 @@
 ---
 title: API
-description: How API works on Folks Router.
+description: API on Folks Router.
 ---
 
 Coming soon.
