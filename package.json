@@ -5,7 +5,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*\" --ignore-unknown"
+    "format": "prettier --write \"**/*\" --ignore-unknown",
+    "release": "turbo run publish",
+    "publish": "changeset publish",
+    "check-exports": "turbo run check-exports"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
