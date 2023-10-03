@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Folks Router Turborepo
+# Folks Router
 
 Folks Router is a DEXs aggregator that allows users to swap tokens across multiple decentralized exchanges (DEXs) on the Algorand blockchain.
 
