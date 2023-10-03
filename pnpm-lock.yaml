@@ -59,6 +59,9 @@ importers:
       astro-i18next:
         specifier: 1.0.0-beta.21
         version: 1.0.0-beta.21(astro@3.1.4)
+      astro-seo:
+        specifier: ^0.8.0
+        version: 0.8.0
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -2343,6 +2346,10 @@ packages:
       pathe: 1.1.1
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /astro-seo@0.8.0:
+    resolution: {integrity: sha512-7gq6lhibCM8FuzZIJlbLLWP5EJ9KL2/4XqeFrAg9O6ZK2xMFxJ5ubKf+a0VJwwTu8W8Xr421CmpiXu6Hq7n/7Q==}
     dev: false
 
   /astro@3.1.4:
