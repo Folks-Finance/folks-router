@@ -26,6 +26,7 @@
     "astro": "^3.0.13",
     "astro-compress": "^2.0.15",
     "astro-i18next": "1.0.0-beta.21",
+    "astro-seo": "^0.8.0",
     "clsx": "^2.0.0",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",

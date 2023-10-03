@@ -8,7 +8,7 @@ import MinusIcon from "~icons/lucide/minus.svg";
 import PlusIcon from "~icons/lucide/plus.svg";
 import RotateCwIcon from "~icons/lucide/rotate-cw.svg";
 import AlgoIcon from "~icons/token-icons/algo.svg";
-import UsdtIcon from "~icons/token-icons/usdt.svg";
+import UsdcIcon from "~icons/token-icons/usdc.svg";
 
 interface WidgetCardFrontProps {
   onTimerExpired: () => void;
@@ -75,8 +75,8 @@ export const WidgetCardFront = ({ onTimerExpired, onFlipSideClicked }: WidgetCar
           <p>9.55</p>
           <div className="flex items-center justify-center gap-x-4">
             <div className="flex items-center justify-center gap-x-2">
-              <UsdtIcon className="h-6 w-6" />
-              <span className="font-medium text-widget-light-1">USDt</span>
+              <UsdcIcon className="h-6 w-6" />
+              <span className="font-medium text-widget-light-1">USDC</span>
             </div>
             <ChevronDownIcon className="h-5 w-5 text-widget-light-1" />
           </div>
@@ -109,7 +109,7 @@ export const WidgetCardFront = ({ onTimerExpired, onFlipSideClicked }: WidgetCar
         </div>
         <div className="flex w-full items-center justify-between">
           <span className="text-sm text-widget-light-2">Minimum Received</span>
-          <span className="text-sm font-medium text-widget-light-1">9.5428 USDt</span>
+          <span className="text-sm font-medium text-widget-light-1">9.5428 USDC</span>
         </div>
         <div className="flex w-full items-center justify-between">
           <span className="text-sm text-widget-light-2">Price Impact</span>
