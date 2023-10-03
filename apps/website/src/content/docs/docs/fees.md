@@ -1,6 +1,6 @@
 ---
 title: Fees
-description: How fees works on Folks Router.
+description: Fees on Folks Router.
 ---
 
 There are two types of fees:

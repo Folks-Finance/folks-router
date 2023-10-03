@@ -23,3 +23,14 @@ changeLanguage("en");
   <FolksRouterAdvantagesSection />
   <ManageYourAssetsSection />
 </BaseLayout>
+
+<script>
+  function handleFooterVisibility() {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    footer.classList.remove("invisible");
+  }
+
+  handleFooterVisibility();
+</script>
