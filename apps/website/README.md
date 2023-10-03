@@ -1,52 +1,37 @@
-# Starlight Starter Kit: Tailwind
+# Folks Router Frontend
 
-```
-npm create astro@latest -- --template starlight/tailwind
-```
+<p align="center">
+  <a href="https://folksrouter.io/" target="_blank" rel="noopener">
+      <img src="https://folksrouter.io/favicon.png" height="128">
+  </a>
+</p>
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/tailwind)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/tailwind)
+An open source interface for Folks Router.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Website: [folksrouter.io](https://folksrouter.io/)
+- Analytics: [folksrouter.io/metrics](https://folksrouter.io/metrics/)
+- Docs: [folksrouter.io/docs/introduction](https://folksrouter.io/docs/introduction/)
 
-## 🚀 Project Structure
+## Running locally
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+If you want to run the website locally, follow the instructions below.
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-├── tailwind.config.cjs
-└── tsconfig.json
+> All the following commands must be run from the project root.
+
+Install dependencies.
+
+```sh
+pnpm i
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Start the development server.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+```sh
+pnpm dev --filter=website
+```
 
-Static assets, like favicons, can be placed in the `public/` directory.
+Build with production mode.
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+```sh
+pnpm build --filter=website
+```
