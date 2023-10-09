@@ -1,6 +1,6 @@
 import { Card, BarChart, TabGroup, TabList, Tab } from "@tremor/react";
 
-import { timeframes } from "@components/metrics-dashboard/types";
+import { TIMEFRAMES_LABEL, timeframes } from "@components/metrics-dashboard/types";
 
 import type { BarChartProps } from "@tremor/react";
 import type { Dispatch, SetStateAction } from "react";
@@ -26,12 +26,12 @@ export const HistogramChartCard = ({
         className="teblet:w-1/2 flex w-full items-center justify-center tablet:justify-end"
       >
         <TabList variant="solid" className="!rounded-md p-1.5">
-          {timeframes.map((timeframe) => (
+          {timeframes.map((_, index) => (
             <Tab
-              key={Math.random()}
+              key={TIMEFRAMES_LABEL[index]}
               className="rounded-md transition-colors duration-300 hover:bg-base-2 aria-selected:bg-base-2 aria-selected:text-base-content"
             >
-              {timeframe}
+              {TIMEFRAMES_LABEL[index]}
             </Tab>
           ))}
         </TabList>
