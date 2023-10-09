@@ -1,4 +1,9 @@
-export const timeframes = ["YEAR", "MONTH", "DAY", "HOUR"] as const;
+export const timeframes = [
+  ["YEAR"],
+  ["YEAR", "MONTH"],
+  ["YEAR", "MONTH", "DAY"],
+  ["YEAR", "MONTH", "DAY", "HOUR"],
+] as const;
 export type Timeframes = (typeof timeframes)[number];
 
 export const TIMEFRAMES_LABEL: { [key: number]: string } = {

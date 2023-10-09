@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { GraphQLClient, gql } from "graphql-request";
 
+import type { Timeframes } from "@components/metrics-dashboard/types";
+
 interface UseVolumeParams {
-  timeframe: string;
+  timeframe: Timeframes;
 }
 
-interface BaseVolumeInfo {
+export interface BaseVolumeInfo {
   keys: string[];
   sum: {
     volumeUSD: number;
@@ -24,9 +26,9 @@ const getVolume = async ({ timeframe }: UseVolumeParams) => {
   const client = new GraphQLClient(FOLKS_ROUTER_ANALYTICS_ENDPOINT);
 
   const query = gql`
-    query RouteTransactions($groupBy: RouteTransactionsGroupBy!) {
+    query RouteTransactions($groupBy: [RouteTransactionsGroupBy!]!) {
       routeTransactions {
-        groupedAggregates(groupBy: [$groupBy]) {
+        groupedAggregates(groupBy: $groupBy) {
           keys
           sum {
             volumeUSD
@@ -41,7 +43,7 @@ const getVolume = async ({ timeframe }: UseVolumeParams) => {
   return { routeTransactions };
 };
 
-export const useVolume = ({ timeframe }: UseVolumeParams) => {
+export const useTransactionsVolumes = ({ timeframe }: UseVolumeParams) => {
   const { data, isLoading } = useQuery({
     queryKey: ["volumes", timeframe],
     queryFn: () => getVolume({ timeframe }),
