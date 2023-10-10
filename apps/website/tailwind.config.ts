@@ -82,7 +82,7 @@ const config = {
             inverted: "rgb(var(--base-2))",
           },
           background: {
-            muted: "#f7f7f8",
+            muted: "rgb(var(--base-1))",
             subtle: "rgb(var(--base-1))",
             DEFAULT: "rgb(var(--base-2))",
             emphasis: "#4a4a5a",
@@ -109,7 +109,7 @@ const config = {
       },
       borderRadius: {
         "tremor-small": "0.375rem",
-        "tremor-default": "1rem",
+        "tremor-default": "0.375rem",
         "tremor-full": "9999px",
       },
       fontSize: {
