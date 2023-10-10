@@ -7,8 +7,8 @@ export const timeframes = [
 export type Timeframes = (typeof timeframes)[number];
 
 export const TIMEFRAMES_LABEL: { [key: number]: string } = {
-  0: "YEAR",
-  1: "MONTH",
-  2: "DAY",
-  3: "HOUR",
+  0: "Year",
+  1: "Month",
+  2: "Day",
+  3: "Hour",
 };
