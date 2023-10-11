@@ -11,7 +11,6 @@ interface BaseAssetInfo {
 
 interface AssestInfo {
   tokens: {
-    totalCount: number;
     nodes: BaseAssetInfo[];
   };
 }
@@ -22,7 +21,6 @@ const getFolksRouterAssets = async () => {
   const query = gql`
     query {
       tokens(offset: 0) {
-        totalCount
         nodes {
           id
           name
@@ -37,7 +35,7 @@ const getFolksRouterAssets = async () => {
 };
 
 export const useFolksRouterAssets = () => {
-  const { data: folksRouterAssets } = useQuery({
+  const { data: folksRouterAssets, ...rest } = useQuery({
     queryKey: ["folks-router-assets"],
     queryFn: async () => {
       const {
@@ -49,5 +47,5 @@ export const useFolksRouterAssets = () => {
     refetchInterval: 30 * 60 * 1000, // 30 minutes
   });
 
-  return { folksRouterAssets };
+  return { folksRouterAssets, ...rest };
 };
