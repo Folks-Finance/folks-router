@@ -5,6 +5,7 @@ import { useSpinDelay } from "spin-delay";
 import { timeframes } from "@components/metrics-dashboard/timeframes";
 import { AssetIconFallback } from "@components/metrics-dashboard/token-volume-chart/asset-icon-fallback";
 import { Spinner } from "@components/spinner/spinner";
+import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterAssetInfo } from "src/lib/metrics/hooks/use-folks-router-asset-info";
 import { useFolksRouterAssets } from "src/lib/metrics/hooks/use-folks-router-assets";
 
@@ -13,6 +14,8 @@ const valueFormatter = (value: number) => `$ ${new Intl.NumberFormat("en-US").fo
 export const TokenVolumeChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(2); // Default to HOUR
   const [assetId, setAssetId] = useState("0"); // Default to ALGO
+
+  const isMobile = useIsMobile();
 
   const { folksRouterAssets, isLoading: isFolksRouterAssetsLoading } = useFolksRouterAssets();
   const selectedTimeframe = timeframes[selectedTimeframeIndex] || timeframes[1];
@@ -29,7 +32,7 @@ export const TokenVolumeChart = () => {
   const folksRouterAssetInfo = data?.tokenHourData.nodes;
   if (!folksRouterAssets || !folksRouterAssetInfo || isDataLoading)
     return (
-      <Card className="flex min-h-[28.5rem] w-full items-center justify-center">
+      <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[28.375rem]">
         <Spinner />
       </Card>
     );
@@ -90,6 +93,7 @@ export const TokenVolumeChart = () => {
         yAxisWidth={70}
         showAnimation
         showXAxis={false}
+        showYAxis={isMobile ? false : true}
         showLegend={false}
       />
     </Card>
