@@ -13,10 +13,6 @@
     "dev": {
       "cache": false,
       "persistent": true
-    },
-    "publish": {
-      "dependsOn": ["build", "check-exports", "lint"],
-      "cache": false
     }
   }
 }

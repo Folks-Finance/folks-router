@@ -1,7 +1,13 @@
 {
   "name": "@folks-router/js-sdk",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Folks-Finance/folks-router.git",
+    "directory": "packages/folks-router-js-sdk"
+  },
+  "homepage": "https://folksrouter.io",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
