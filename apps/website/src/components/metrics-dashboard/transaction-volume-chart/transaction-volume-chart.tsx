@@ -4,7 +4,7 @@ import { useState } from "react";
 import { timeframes } from "@components/metrics-dashboard/timeframes";
 
 export const TransactionVolumeChart = () => {
-  const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(2); // Default to HOUR
+  const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
 
   return (
     <Card className="flex flex-col gap-y-12">
