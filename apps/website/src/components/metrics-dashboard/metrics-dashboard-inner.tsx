@@ -1,6 +1,6 @@
 import { Col, Grid } from "@tremor/react";
 
-import { TokenFeesVolumeChart } from "@components/metrics-dashboard/token-fees-chart/token-fees-volume-chart";
+import { TokenFeesVolumeChart } from "@components/metrics-dashboard/token-fees-volume-chart/token-fees-volume-chart";
 import { TokenVolumeChart } from "@components/metrics-dashboard/token-volume-chart/token-volume-chart";
 
 export const MetricsDashboardInner = () => {
