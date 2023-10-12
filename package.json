@@ -6,17 +6,17 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*\" --ignore-unknown",
-    "release": "turbo run publish",
-    "publish": "changeset publish",
+    "release": "turbo run build && changeset publish",
     "check-exports": "turbo run check-exports"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
     "tsconfig": "workspace:*",
-    "turbo": "^1.10.14"
+    "turbo": "^1.10.15"
   },
   "packageManager": "pnpm@8.6.10"
 }
