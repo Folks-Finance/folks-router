@@ -1,4 +1,4 @@
-import { Card, SearchSelect, SearchSelectItem, Tab, TabGroup, TabList, LineChart } from "@tremor/react";
+import { Card, SearchSelect, SearchSelectItem, Tab, TabGroup, TabList, BarChart } from "@tremor/react";
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
@@ -12,7 +12,7 @@ import { useFolksRouterAssets } from "src/lib/metrics/hooks/use-folks-router-ass
 const valueFormatter = (value: number) => `$ ${new Intl.NumberFormat("en-US").format(value).toString()}`;
 
 export const TokenFeesVolumeChart = () => {
-  const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(2); // Default to HOUR
+  const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
   const [assetId, setAssetId] = useState("0"); // Default to ALGO
 
   const isMobile = useIsMobile();
@@ -29,7 +29,7 @@ export const TokenFeesVolumeChart = () => {
     minDuration: 1000,
   });
 
-  const folksRouterAssetInfo = data?.tokenHourData.nodes;
+  const folksRouterAssetInfo = data?.tokenData.nodes;
   if (!folksRouterAssets || !folksRouterAssetInfo || isDataLoading)
     return (
       <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[28.375rem]">
@@ -84,7 +84,7 @@ export const TokenFeesVolumeChart = () => {
         </div>
       </div>
 
-      <LineChart
+      <BarChart
         data={tokenFeesVolumeChartData}
         index="token-fees-volume"
         categories={["Token Fees Volume"]}
