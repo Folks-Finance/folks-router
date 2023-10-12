@@ -21,6 +21,7 @@ jobs:
           cache: "pnpm"
       - uses: dtinth/setup-github-actions-caching-for-turbo@v1
       - run: pnpm install --frozen-lockfile
+      - run: pnpm build
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
