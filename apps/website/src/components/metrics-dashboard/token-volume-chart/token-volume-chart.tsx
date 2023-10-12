@@ -12,7 +12,7 @@ import { useFolksRouterAssets } from "src/lib/metrics/hooks/use-folks-router-ass
 const valueFormatter = (value: number) => `$ ${new Intl.NumberFormat("en-US").format(value).toString()}`;
 
 export const TokenVolumeChart = () => {
-  const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(2); // Default to HOUR
+  const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
   const [assetId, setAssetId] = useState("0"); // Default to ALGO
 
   const isMobile = useIsMobile();
@@ -29,7 +29,7 @@ export const TokenVolumeChart = () => {
     minDuration: 1000,
   });
 
-  const folksRouterAssetInfo = data?.tokenHourData.nodes;
+  const folksRouterAssetInfo = data?.tokenData.nodes;
   if (!folksRouterAssets || !folksRouterAssetInfo || isDataLoading)
     return (
       <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[28.375rem]">
@@ -90,7 +90,7 @@ export const TokenVolumeChart = () => {
         categories={["Token Volume"]}
         colors={["blue"]}
         valueFormatter={valueFormatter}
-        yAxisWidth={70}
+        yAxisWidth={80}
         showAnimation
         showXAxis={false}
         showYAxis={isMobile ? false : true}
