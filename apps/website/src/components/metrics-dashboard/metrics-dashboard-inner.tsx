@@ -4,6 +4,7 @@ import { TokenFeesVolumeChart } from "@components/metrics-dashboard/token-fees-v
 import { TokenVolumeChart } from "@components/metrics-dashboard/token-volume-chart/token-volume-chart";
 import { TransactionFeesVolumeChart } from "@components/metrics-dashboard/transaction-fees-volume-chart/transaction-fees-volume-chart";
 import { TransactionVolumeChart } from "@components/metrics-dashboard/transaction-volume-chart/transaction-volume-chart";
+import { WalletChart } from "@components/metrics-dashboard/wallet-chart/wallet-chart";
 
 export const MetricsDashboardInner = () => {
   return (
@@ -19,6 +20,9 @@ export const MetricsDashboardInner = () => {
       </Col>
       <Col numColSpan={1} numColSpanLg={12}>
         <TokenFeesVolumeChart />
+      </Col>
+      <Col numColSpan={1} numColSpanLg={12}>
+        <WalletChart />
       </Col>
     </Grid>
   );
