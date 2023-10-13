@@ -32,7 +32,7 @@ export const TransactionFeesVolumeChart = () => {
       </Card>
     );
 
-  const transactionVolumeChartData = folksRouterData.map(({ periodStartUnix, feesUSD }) => ({
+  const transactionFeesVolumeChartData = folksRouterData.map(({ periodStartUnix, feesUSD }) => ({
     "transaction-fees-volume": new Date(periodStartUnix).toLocaleDateString("en-US", {
       hour: "2-digit",
       day: "2-digit",
@@ -69,7 +69,7 @@ export const TransactionFeesVolumeChart = () => {
       </div>
 
       <BarChart
-        data={transactionVolumeChartData}
+        data={transactionFeesVolumeChartData}
         index="transaction-fees-volume"
         categories={["Transaction Fees Volume"]}
         colors={["sky"]}
