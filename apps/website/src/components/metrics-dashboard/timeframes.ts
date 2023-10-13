@@ -1,2 +1,2 @@
-export const timeframes = ["MONTH", "DAY", "HOUR"] as const;
+export const timeframes = ["HOUR", "DAY", "MONTH"] as const;
 export type Timeframes = (typeof timeframes)[number];
