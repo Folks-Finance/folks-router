@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
 
-import { MetricsDashboardInner } from "@components/metrics-dashboard/metrics-dashboard-inner";
 import { useInitDeviceSize } from "@hooks/use-device-size";
+import { MetricsDashboardInner } from "src/modules/metrics/metrics-dashboard/metrics-dashboard-inner";
 
 export const MetricsDashboard = () => {
   const [queryClient] = useState(() => new QueryClient());

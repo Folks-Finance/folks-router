@@ -2,12 +2,12 @@ import { BarChart, Card } from "@tremor/react";
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
-import { ChartLegend } from "@components/metrics-dashboard/chart-legend";
-import { TimeframeChartTabs } from "@components/metrics-dashboard/timeframe-chart-tabs";
-import { timeframes } from "@components/metrics-dashboard/timeframes";
 import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
-import { useFolksRouterData } from "src/lib/metrics/hooks/use-folks-router-data";
+import { useFolksRouterData } from "src/modules/metrics/hooks/use-folks-router-data";
+import { ChartLegend } from "src/modules/metrics/metrics-dashboard/chart-legend";
+import { TimeframeChartTabs } from "src/modules/metrics/metrics-dashboard/timeframe-chart-tabs";
+import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
 
 export const TransactionWalletNumberChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY

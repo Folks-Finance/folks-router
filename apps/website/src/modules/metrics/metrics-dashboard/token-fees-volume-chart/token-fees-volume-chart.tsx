@@ -2,15 +2,15 @@ import { Card, BarChart } from "@tremor/react";
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
-import { ChartLegend } from "@components/metrics-dashboard/chart-legend";
-import { SearchSelectAssetChart } from "@components/metrics-dashboard/search-select-asset-chart";
-import { TimeframeChartTabs } from "@components/metrics-dashboard/timeframe-chart-tabs";
-import { timeframes } from "@components/metrics-dashboard/timeframes";
-import { getFormattedValue } from "@components/metrics-dashboard/utils";
 import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
-import { useFolksRouterAssetInfo } from "src/lib/metrics/hooks/use-folks-router-asset-info";
-import { useFolksRouterAssets } from "src/lib/metrics/hooks/use-folks-router-assets";
+import { useFolksRouterAssetInfo } from "src/modules/metrics/hooks/use-folks-router-asset-info";
+import { useFolksRouterAssets } from "src/modules/metrics/hooks/use-folks-router-assets";
+import { ChartLegend } from "src/modules/metrics/metrics-dashboard/chart-legend";
+import { SearchSelectAssetChart } from "src/modules/metrics/metrics-dashboard/search-select-asset-chart";
+import { TimeframeChartTabs } from "src/modules/metrics/metrics-dashboard/timeframe-chart-tabs";
+import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
+import { getFormattedValue } from "src/modules/metrics/metrics-dashboard/utils";
 
 export const TokenFeesVolumeChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY

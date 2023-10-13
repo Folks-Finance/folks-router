@@ -1,9 +1,9 @@
 import { SearchSelect, SearchSelectItem } from "@tremor/react";
 
-import { AssetIconFallback } from "@components/metrics-dashboard/token-volume-chart/asset-icon-fallback";
+import { AssetIconFallback } from "src/modules/metrics/metrics-dashboard/asset-icon-fallback";
 
 import type { Dispatch, SetStateAction } from "react";
-import type { BaseAssetInfo } from "src/lib/metrics/hooks/use-folks-router-assets";
+import type { BaseAssetInfo } from "src/modules/metrics/hooks/use-folks-router-assets";
 
 interface SearchSelectAssetChartProps {
   assetId: string;

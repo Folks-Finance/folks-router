@@ -1,6 +1,6 @@
 import { TabGroup, TabList, Tab } from "@tremor/react";
 
-import { timeframes } from "@components/metrics-dashboard/timeframes";
+import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
 
 interface ChartTabsProps {
   index: number;

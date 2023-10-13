@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { GraphQLClient, gql } from "graphql-request";
 
-import { FOLKS_ROUTER_METRICS_ENDPOINT } from "src/lib/metrics/hooks/graphql-endpoint";
+import { FOLKS_ROUTER_METRICS_ENDPOINT } from "src/modules/metrics/hooks/graphql-endpoint";
 
 export interface BaseAssetInfo {
   id: string;

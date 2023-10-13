@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { GraphQLClient, gql } from "graphql-request";
 import { match } from "ts-pattern";
 
-import { FOLKS_ROUTER_METRICS_ENDPOINT } from "src/lib/metrics/hooks/graphql-endpoint";
+import { FOLKS_ROUTER_METRICS_ENDPOINT } from "src/modules/metrics/hooks/graphql-endpoint";
 
-import type { Timeframes } from "@components/metrics-dashboard/timeframes";
+import type { Timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
 
 interface BaseFolksRouterAssetInfo {
   periodStartUnix: string;
