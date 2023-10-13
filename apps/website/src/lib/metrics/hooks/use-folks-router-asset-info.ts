@@ -12,7 +12,7 @@ interface BaseFolksRouterAssetInfo {
   feesUSD: number;
 }
 
-interface FolksRouterAssestInfo {
+interface FolksRouterAssetsInfo {
   tokenData: {
     nodes: BaseFolksRouterAssetInfo[];
   };
@@ -78,7 +78,7 @@ const getFolksRouterAssetInfo = async (assetId: string, timeframe: Timeframes) =
     )
     .exhaustive();
 
-  const { tokenData } = await client.request<FolksRouterAssestInfo>(query, { assetId });
+  const { tokenData } = await client.request<FolksRouterAssetsInfo>(query, { assetId });
   return { tokenData };
 };
 
