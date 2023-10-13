@@ -72,13 +72,12 @@ export const TransactionFeesVolumeChart = () => {
         data={transactionFeesVolumeChartData}
         index="transaction-fees-volume"
         categories={["Transaction Fees Volume"]}
-        colors={["sky"]}
+        colors={["blue"]}
         valueFormatter={valueFormatter}
         yAxisWidth={80}
         showAnimation
         showXAxis={false}
         showYAxis={isMobile ? false : true}
-        showLegend={false}
       />
     </Card>
   );

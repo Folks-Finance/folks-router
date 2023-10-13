@@ -72,13 +72,12 @@ export const TransactionVolumeChart = () => {
         data={transactionVolumeChartData}
         index="transaction-volume"
         categories={["Transaction Volume"]}
-        colors={["blue"]}
+        colors={["violet"]}
         valueFormatter={valueFormatter}
         yAxisWidth={80}
         showAnimation
         showXAxis={false}
         showYAxis={isMobile ? false : true}
-        showLegend={false}
       />
     </Card>
   );
