@@ -110,6 +110,9 @@ importers:
       tailwindcss:
         specifier: ^3.3.3
         version: 3.3.3
+      ts-pattern:
+        specifier: ^5.0.5
+        version: 5.0.5
     devDependencies:
       '@iconify-json/lucide':
         specifier: ^1.1.128
@@ -8805,6 +8808,10 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
+
+  /ts-pattern@5.0.5:
+    resolution: {integrity: sha512-tL0w8U/pgaacOmkb9fRlYzWEUDCfVjjv9dD4wHTgZ61MjhuMt46VNWTG747NqW6vRzoWIKABVhFSOJ82FvXrfA==}
+    dev: false
 
   /tsconfig-paths@3.14.2:
     resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
