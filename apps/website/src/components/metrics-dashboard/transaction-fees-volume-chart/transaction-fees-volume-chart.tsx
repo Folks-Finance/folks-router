@@ -29,7 +29,7 @@ export const TransactionFeesVolumeChart = () => {
   const folksRouterData = data?.folksRouterData.nodes;
   if (!folksRouterData || isDataLoading)
     return (
-      <Card className="flex min-h-[31.625rem] w-full items-center justify-center tablet:min-h-[26.375rem]">
+      <Card className="flex min-h-[31.375rem] w-full items-center justify-center tablet:min-h-[26.375rem]">
         <Spinner />
       </Card>
     );
