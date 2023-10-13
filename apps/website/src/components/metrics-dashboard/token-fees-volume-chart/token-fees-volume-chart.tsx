@@ -1,8 +1,9 @@
-import { Card, SearchSelect, SearchSelectItem, Tab, TabGroup, TabList, BarChart } from "@tremor/react";
+import { Card, SearchSelect, SearchSelectItem, BarChart } from "@tremor/react";
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
 import { ChartLegend } from "@components/metrics-dashboard/chart-legend";
+import { TimeframeChartTabs } from "@components/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "@components/metrics-dashboard/timeframes";
 import { AssetIconFallback } from "@components/metrics-dashboard/token-volume-chart/asset-icon-fallback";
 import { Spinner } from "@components/spinner/spinner";
@@ -76,22 +77,7 @@ export const TokenFeesVolumeChart = () => {
             ))}
           </SearchSelect>
 
-          <TabGroup
-            index={selectedTimeframeIndex}
-            onIndexChange={setSelectedTimeframeIndex}
-            className="tablet:max-w-xs"
-          >
-            <TabList variant="solid" className="flex flex-1 p-1">
-              {timeframes.map((timeframe) => (
-                <Tab
-                  key={timeframe}
-                  className="flex flex-1 justify-center transition-colors duration-300 hover:bg-base-2 aria-selected:bg-base-2 aria-selected:text-base-content"
-                >
-                  {timeframe}
-                </Tab>
-              ))}
-            </TabList>
-          </TabGroup>
+          <TimeframeChartTabs index={selectedTimeframeIndex} onIndexChange={setSelectedTimeframeIndex} />
         </div>
       </div>
 
