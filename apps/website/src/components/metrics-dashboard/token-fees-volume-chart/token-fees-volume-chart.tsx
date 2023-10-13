@@ -2,6 +2,7 @@ import { Card, SearchSelect, SearchSelectItem, Tab, TabGroup, TabList, BarChart 
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
+import { ChartLegend } from "@components/metrics-dashboard/chart-legend";
 import { timeframes } from "@components/metrics-dashboard/timeframes";
 import { AssetIconFallback } from "@components/metrics-dashboard/token-volume-chart/asset-icon-fallback";
 import { Spinner } from "@components/spinner/spinner";
@@ -48,7 +49,7 @@ export const TokenFeesVolumeChart = () => {
   }));
 
   return (
-    <Card className="flex flex-col gap-y-12">
+    <Card className="flex flex-col gap-y-4">
       <div className="flex flex-col items-center gap-y-4 tablet:flex-row tablet:justify-between tablet:gap-x-4">
         <h2 className="whitespace-nowrap text-center text-2xl text-base-content tablet:text-left lg:w-1/4">
           Token Fees Volume
@@ -95,6 +96,8 @@ export const TokenFeesVolumeChart = () => {
         showXAxis={false}
         showYAxis={isMobile ? false : true}
       />
+
+      <ChartLegend xLabel="Timeframe" yLabel="$ Amount" />
     </Card>
   );
 };
