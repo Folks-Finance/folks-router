@@ -7,7 +7,7 @@ import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterData } from "src/lib/metrics/hooks/use-folks-router-data";
 
-export const WalletChart = () => {
+export const WalletNumberChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
   const selectedTimeframe = timeframes[selectedTimeframeIndex] || timeframes[1];
 
@@ -30,7 +30,7 @@ export const WalletChart = () => {
       </Card>
     );
 
-  const walletChartData = folksRouterData.map(
+  const walletNumberChartData = folksRouterData.map(
     ({
       periodStartUnix,
       routeTransactions: {
@@ -39,20 +39,22 @@ export const WalletChart = () => {
         },
       },
     }) => ({
-      "wallet-data": new Date(periodStartUnix).toLocaleDateString("en-US", {
+      "wallet-number-data": new Date(periodStartUnix).toLocaleDateString("en-US", {
         hour: "2-digit",
         day: "2-digit",
         month: "short",
         year: "numeric",
       }),
-      Wallets: senderId,
+      "Wallet Number": senderId,
     }),
   );
 
   return (
     <Card className="flex flex-col gap-y-12">
       <div className="flex flex-col items-center gap-y-4 tablet:flex-row tablet:justify-between tablet:gap-x-4">
-        <h2 className="whitespace-nowrap text-center text-2xl text-base-content tablet:text-left lg:w-1/4">Wallets</h2>
+        <h2 className="whitespace-nowrap text-center text-2xl text-base-content tablet:text-left lg:w-1/4">
+          Wallet Number
+        </h2>
         <div className="flex w-full flex-col gap-4 sm:flex-row tablet:items-center tablet:justify-end lg:w-3/4">
           <TabGroup
             index={selectedTimeframeIndex}
@@ -74,10 +76,10 @@ export const WalletChart = () => {
       </div>
 
       <BarChart
-        data={walletChartData}
-        index="wallet-data"
-        categories={["Wallets"]}
-        colors={["emerald"]}
+        data={walletNumberChartData}
+        index="wallet-number-data"
+        categories={["Wallet Number"]}
+        colors={["cyan"]}
         yAxisWidth={80}
         showAnimation
         showXAxis={false}
