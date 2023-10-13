@@ -5,11 +5,10 @@ import { useSpinDelay } from "spin-delay";
 import { ChartLegend } from "@components/metrics-dashboard/chart-legend";
 import { TimeframeChartTabs } from "@components/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "@components/metrics-dashboard/timeframes";
+import { getFormattedValue } from "@components/metrics-dashboard/utils";
 import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterData } from "src/lib/metrics/hooks/use-folks-router-data";
-
-const valueFormatter = (value: number) => `$ ${new Intl.NumberFormat("en-US").format(value).toString()}`;
 
 export const TransactionFeesVolumeChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
@@ -58,7 +57,7 @@ export const TransactionFeesVolumeChart = () => {
         index="transaction-fees-volume"
         categories={["Transaction Fees Volume"]}
         colors={["blue"]}
-        valueFormatter={valueFormatter}
+        valueFormatter={getFormattedValue}
         yAxisWidth={80}
         showAnimation
         showXAxis={false}

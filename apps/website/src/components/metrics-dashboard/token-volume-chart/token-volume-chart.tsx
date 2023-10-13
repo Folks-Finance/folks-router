@@ -6,12 +6,11 @@ import { ChartLegend } from "@components/metrics-dashboard/chart-legend";
 import { SearchSelectAssetChart } from "@components/metrics-dashboard/search-select-asset-chart";
 import { TimeframeChartTabs } from "@components/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "@components/metrics-dashboard/timeframes";
+import { getFormattedValue } from "@components/metrics-dashboard/utils";
 import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterAssetInfo } from "src/lib/metrics/hooks/use-folks-router-asset-info";
 import { useFolksRouterAssets } from "src/lib/metrics/hooks/use-folks-router-assets";
-
-const valueFormatter = (value: number) => `$ ${new Intl.NumberFormat("en-US").format(value).toString()}`;
 
 export const TokenVolumeChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
@@ -66,7 +65,7 @@ export const TokenVolumeChart = () => {
         index="token-volume"
         categories={["Token Volume"]}
         colors={["cyan"]}
-        valueFormatter={valueFormatter}
+        valueFormatter={getFormattedValue}
         yAxisWidth={80}
         showAnimation
         showXAxis={false}
