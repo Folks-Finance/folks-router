@@ -88,7 +88,7 @@ export const TokenFeesVolumeChart = () => {
         data={tokenFeesVolumeChartData}
         index="token-fees-volume"
         categories={["Token Fees Volume"]}
-        colors={["blue"]}
+        colors={["teal"]}
         valueFormatter={valueFormatter}
         yAxisWidth={70}
         showAnimation
