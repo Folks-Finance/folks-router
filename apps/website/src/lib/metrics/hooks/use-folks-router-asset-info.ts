@@ -83,12 +83,12 @@ const getFolksRouterAssetInfo = async (assetId: string, timeframe: Timeframes) =
 };
 
 export const useFolksRouterAssetInfo = ({ assetId, timeframe }: { assetId: string; timeframe: Timeframes }) => {
-  const { data, ...rest } = useQuery({
+  const result = useQuery({
     queryKey: ["folks-router-asset-info", assetId, timeframe],
     queryFn: () => getFolksRouterAssetInfo(assetId, timeframe),
     staleTime: Infinity,
     refetchInterval: 30 * 60 * 1000, // 30 minutes
   });
 
-  return { data, ...rest };
+  return result;
 };
