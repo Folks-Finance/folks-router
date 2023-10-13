@@ -46,7 +46,7 @@ export const TransactionVolumeChart = () => {
   return (
     <Card className="flex flex-col gap-y-4">
       <div className="flex flex-col items-center gap-y-4 tablet:flex-row tablet:justify-between tablet:gap-x-4">
-        <h2 className="whitespace-nowrap text-center text-2xl text-base-content tablet:text-left lg:w-1/4">
+        <h2 className="whitespace-nowrap text-center text-lg text-base-content tablet:text-left tablet:text-2xl lg:w-1/4">
           Transaction Volume
         </h2>
         <div className="flex w-full flex-col gap-4 sm:flex-row tablet:items-center tablet:justify-end lg:w-3/4">
