@@ -33,7 +33,7 @@ export const TokenVolumeChart = () => {
   const folksRouterAssetInfo = data?.tokenData.nodes;
   if (!folksRouterAssets || !folksRouterAssetInfo || isDataLoading)
     return (
-      <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[28.375rem]">
+      <Card className="flex min-h-[35rem] w-full items-center justify-center sm:min-h-[31.625rem] tablet:min-h-[26.375rem]">
         <Spinner />
       </Card>
     );
