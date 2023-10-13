@@ -3,7 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 import { FOLKS_ROUTER_METRICS_ENDPOINT } from "src/lib/metrics/hooks/graphql-endpoint";
 
-interface BaseAssetInfo {
+export interface BaseAssetInfo {
   id: string;
   name: string;
   ticker: string;

@@ -1,11 +1,11 @@
-import { Card, SearchSelect, SearchSelectItem, BarChart } from "@tremor/react";
+import { Card, BarChart } from "@tremor/react";
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
 import { ChartLegend } from "@components/metrics-dashboard/chart-legend";
+import { SearchSelectAssetChart } from "@components/metrics-dashboard/search-select-asset-chart";
 import { TimeframeChartTabs } from "@components/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "@components/metrics-dashboard/timeframes";
-import { AssetIconFallback } from "@components/metrics-dashboard/token-volume-chart/asset-icon-fallback";
 import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterAssetInfo } from "src/lib/metrics/hooks/use-folks-router-asset-info";
@@ -56,27 +56,7 @@ export const TokenFeesVolumeChart = () => {
           Token Fees Volume
         </h2>
         <div className="flex w-full flex-col gap-4 sm:flex-row tablet:items-center tablet:justify-end lg:w-3/4">
-          <SearchSelect
-            value={assetId}
-            onValueChange={setAssetId}
-            className="tablet:max-w-xs"
-            icon={() => (
-              <AssetIconFallback
-                assetId={parseInt(assetId)}
-                unitName={folksRouterAssets.find(({ id }) => id === assetId)?.ticker}
-              />
-            )}
-          >
-            {folksRouterAssets.map(({ id, ticker }) => (
-              <SearchSelectItem key={id} value={id} className="hover:bg-base-1">
-                <div className="flex items-center gap-x-2">
-                  <AssetIconFallback assetId={parseInt(id)} unitName={ticker} />
-                  <span>{ticker}</span>
-                </div>
-              </SearchSelectItem>
-            ))}
-          </SearchSelect>
-
+          <SearchSelectAssetChart assetId={assetId} setAssetId={setAssetId} folksRouterAssets={folksRouterAssets} />
           <TimeframeChartTabs index={selectedTimeframeIndex} onIndexChange={setSelectedTimeframeIndex} />
         </div>
       </div>
