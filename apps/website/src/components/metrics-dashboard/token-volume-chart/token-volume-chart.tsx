@@ -55,7 +55,17 @@ export const TokenVolumeChart = () => {
           Token Volume
         </h2>
         <div className="flex w-full flex-col gap-4 sm:flex-row tablet:items-center tablet:justify-end lg:w-3/4">
-          <SearchSelect value={assetId} onValueChange={setAssetId} className="tablet:max-w-xs">
+          <SearchSelect
+            value={assetId}
+            onValueChange={setAssetId}
+            className="tablet:max-w-xs"
+            icon={() => (
+              <AssetIconFallback
+                assetId={parseInt(assetId)}
+                unitName={folksRouterAssets.find(({ id }) => id === assetId)?.ticker}
+              />
+            )}
+          >
             {folksRouterAssets.map(({ id, ticker }) => (
               <SearchSelectItem key={id} value={id} className="hover:bg-base-1">
                 <div className="flex items-center gap-x-2">

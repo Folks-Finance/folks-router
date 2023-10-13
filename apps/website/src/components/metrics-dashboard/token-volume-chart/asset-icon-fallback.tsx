@@ -4,7 +4,7 @@ import PlaceholderIcon from "~icons/token-icons/placeholder.svg";
 
 interface AssetIconFallbackProps {
   assetId: number;
-  unitName: string;
+  unitName?: string | undefined;
 }
 
 export const AssetIconFallback = ({ assetId, unitName }: AssetIconFallbackProps) => {
@@ -15,7 +15,7 @@ export const AssetIconFallback = ({ assetId, unitName }: AssetIconFallbackProps)
   return (
     <img
       src={`https://asa-list.tinyman.org/assets/${assetId}/icon.svg`}
-      alt={`${unitName} ICON`}
+      alt={`${unitName ?? "asset"} icon`}
       onError={() => setError(true)}
       className="h-6 w-6"
     />
