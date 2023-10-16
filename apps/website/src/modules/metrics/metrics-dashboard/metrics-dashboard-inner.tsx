@@ -9,19 +9,19 @@ import { TransactionWalletNumberChart } from "src/modules/metrics/metrics-dashbo
 export const MetricsDashboardInner = () => {
   return (
     <Grid numItems={1} numItemsLg={12} className="gap-6">
-      <Col numColSpan={1} numColSpanLg={12}>
+      <Col numColSpan={1} numColSpanLg={6}>
         <TransactionVolumeChart />
       </Col>
-      <Col numColSpan={1} numColSpanLg={12}>
+      <Col numColSpan={1} numColSpanLg={6}>
         <TransactionFeesVolumeChart />
       </Col>
       <Col numColSpan={1} numColSpanLg={12}>
         <TransactionWalletNumberChart />
       </Col>
-      <Col numColSpan={1} numColSpanLg={12}>
+      <Col numColSpan={1} numColSpanLg={6}>
         <TokenVolumeChart />
       </Col>
-      <Col numColSpan={1} numColSpanLg={12}>
+      <Col numColSpan={1} numColSpanLg={6}>
         <TokenFeesVolumeChart />
       </Col>
     </Grid>

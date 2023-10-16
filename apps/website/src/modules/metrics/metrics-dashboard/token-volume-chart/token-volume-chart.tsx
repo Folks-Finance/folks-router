@@ -73,14 +73,19 @@ export const TokenVolumeChart = () => {
 
   return (
     <Card className="flex flex-col gap-y-4">
-      <div className="flex flex-col items-center gap-y-4 tablet:flex-row tablet:justify-between tablet:gap-x-4">
-        <h2 className="whitespace-nowrap text-center text-lg text-base-content tablet:text-left tablet:text-2xl lg:w-1/4">
-          Token Volume
-        </h2>
-        <div className="flex w-full flex-col gap-4 sm:flex-row tablet:items-center tablet:justify-end lg:w-3/4">
-          <SearchSelectAssetChart assetId={assetId} setAssetId={setAssetId} folksRouterAssets={folksRouterAssets} />
-          <TimeframeChartTabs index={selectedTimeframeIndex} onIndexChange={setSelectedTimeframeIndex} />
+      <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-4 tablet:flex-row">
+          <h2 className="whitespace-nowrap text-center text-lg text-base-content tablet:w-1/2 tablet:text-left tablet:text-2xl lg:w-full">
+            Token Volume
+          </h2>
+          <SearchSelectAssetChart
+            assetId={assetId}
+            setAssetId={setAssetId}
+            folksRouterAssets={folksRouterAssets}
+            className="tablet:w-1/2 lg:w-full"
+          />
         </div>
+        <TimeframeChartTabs index={selectedTimeframeIndex} onIndexChange={setSelectedTimeframeIndex} />
       </div>
 
       {isDataLoading ? (
