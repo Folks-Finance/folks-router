@@ -74,7 +74,7 @@ export const TransactionWalletNumberChart = () => {
         stack
       />
 
-      <ChartLegend xLabel="Timeframe" yLabel="Number" />
+      <ChartLegend xLabel="Timeframe" yLabel="Transaction & Wallet Number" />
     </Card>
   );
 };
