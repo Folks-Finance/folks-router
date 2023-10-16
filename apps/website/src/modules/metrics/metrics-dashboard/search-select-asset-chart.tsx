@@ -25,7 +25,11 @@ export const SearchSelectAssetChart = ({ assetId, setAssetId, folksRouterAssets 
       )}
     >
       {folksRouterAssets.map(({ id, ticker }) => (
-        <SearchSelectItem key={id} value={id} className="hover:bg-base-1">
+        <SearchSelectItem
+          key={id}
+          value={id}
+          className="hover:bg-base-1 data-[headlessui-state=active]:bg-base-1 data-[headlessui-state=selected]:bg-base-1"
+        >
           <div className="flex items-center gap-x-2">
             <AssetIconFallback assetId={parseInt(id)} unitName={ticker} />
             <span>{ticker}</span>
