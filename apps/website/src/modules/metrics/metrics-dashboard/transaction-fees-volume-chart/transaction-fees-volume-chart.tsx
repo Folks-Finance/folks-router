@@ -2,10 +2,10 @@ import { BarChart, Card } from "@tremor/react";
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
-import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterData } from "src/modules/metrics/hooks/use-folks-router-data";
 import { ChartLegend } from "src/modules/metrics/metrics-dashboard/chart-legend";
+import { ChartSkeleton } from "src/modules/metrics/metrics-dashboard/chart-skeleton";
 import { TimeframeChartTabs } from "src/modules/metrics/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
 import { getFormattedValue } from "src/modules/metrics/metrics-dashboard/utils";
@@ -28,16 +28,12 @@ export const TransactionFeesVolumeChart = () => {
 
   const isDataLoading = useSpinDelay(isFolksRouterDataLoading, {
     delay: 0,
-    minDuration: 1000,
+    minDuration: 1500,
   });
 
   const folksRouterData = data?.folksRouterData.nodes;
-  if (!folksRouterData || isDataLoading) {
-    return (
-      <Card className="flex min-h-[31.375rem] w-full items-center justify-center tablet:min-h-[26.375rem]">
-        <Spinner />
-      </Card>
-    );
+  if (!folksRouterData) {
+    return <Card className="flex min-h-[31.375rem] w-full items-center justify-center tablet:min-h-[26.375rem]" />;
   }
 
   if (isFolksRouterDataError) {
@@ -73,19 +69,26 @@ export const TransactionFeesVolumeChart = () => {
         <TimeframeChartTabs index={selectedTimeframeIndex} onIndexChange={setSelectedTimeframeIndex} />
       </div>
 
-      <BarChart
-        data={transactionFeesVolumeChartData}
-        index="transaction-fees-volume"
-        categories={["Transaction Fees Volume"]}
-        colors={["blue"]}
-        valueFormatter={getFormattedValue}
-        yAxisWidth={80}
-        showAnimation
-        showXAxis={false}
-        showYAxis={isMobile ? false : true}
-      />
-
-      <ChartLegend xLabel="Timeframe" yLabel="$ Amount" />
+      {isDataLoading ? (
+        <div className="flex h-[22.235rem] w-full items-center justify-center tablet:h-[20rem]">
+          <ChartSkeleton />
+        </div>
+      ) : (
+        <>
+          <BarChart
+            data={transactionFeesVolumeChartData}
+            index="transaction-fees-volume"
+            categories={["Transaction Fees Volume"]}
+            colors={["blue"]}
+            valueFormatter={getFormattedValue}
+            yAxisWidth={80}
+            showAnimation
+            showXAxis={false}
+            showYAxis={isMobile ? false : true}
+          />
+          <ChartLegend xLabel="Timeframe" yLabel="$ Amount" />
+        </>
+      )}
     </Card>
   );
 };

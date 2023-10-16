@@ -2,11 +2,11 @@ import { Card, BarChart } from "@tremor/react";
 import { useState } from "react";
 import { useSpinDelay } from "spin-delay";
 
-import { Spinner } from "@components/spinner/spinner";
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterAssetInfo } from "src/modules/metrics/hooks/use-folks-router-asset-info";
 import { useFolksRouterAssets } from "src/modules/metrics/hooks/use-folks-router-assets";
 import { ChartLegend } from "src/modules/metrics/metrics-dashboard/chart-legend";
+import { ChartSkeleton } from "src/modules/metrics/metrics-dashboard/chart-skeleton";
 import { SearchSelectAssetChart } from "src/modules/metrics/metrics-dashboard/search-select-asset-chart";
 import { TimeframeChartTabs } from "src/modules/metrics/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
@@ -37,15 +37,13 @@ export const TokenVolumeChart = () => {
 
   const isDataLoading = useSpinDelay(isFolksRouterAssetsLoading || isFolksRouterAssetInfoLoading, {
     delay: 0,
-    minDuration: 1000,
+    minDuration: 1500,
   });
 
   const folksRouterAssetInfo = data?.tokenData.nodes;
-  if (!folksRouterAssets || !folksRouterAssetInfo || isDataLoading) {
+  if (!folksRouterAssets || !folksRouterAssetInfo) {
     return (
-      <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[26.375rem]">
-        <Spinner />
-      </Card>
+      <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[26.375rem]" />
     );
   }
 
@@ -85,19 +83,26 @@ export const TokenVolumeChart = () => {
         </div>
       </div>
 
-      <BarChart
-        data={tokenVolumeChartData}
-        index="token-volume"
-        categories={["Token Volume"]}
-        colors={["cyan"]}
-        valueFormatter={getFormattedValue}
-        yAxisWidth={80}
-        showAnimation
-        showXAxis={false}
-        showYAxis={isMobile ? false : true}
-      />
-
-      <ChartLegend xLabel="Timeframe" yLabel="$ Amount" />
+      {isDataLoading ? (
+        <div className="flex h-[22.235rem] w-full items-center justify-center tablet:h-[20rem]">
+          <ChartSkeleton />
+        </div>
+      ) : (
+        <>
+          <BarChart
+            data={tokenVolumeChartData}
+            index="token-volume"
+            categories={["Token Volume"]}
+            colors={["cyan"]}
+            valueFormatter={getFormattedValue}
+            yAxisWidth={80}
+            showAnimation
+            showXAxis={false}
+            showYAxis={isMobile ? false : true}
+          />
+          <ChartLegend xLabel="Timeframe" yLabel="$ Amount" />
+        </>
+      )}
     </Card>
   );
 };
