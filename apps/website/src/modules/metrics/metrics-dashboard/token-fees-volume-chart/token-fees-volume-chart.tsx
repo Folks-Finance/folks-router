@@ -74,7 +74,7 @@ export const TokenFeesVolumeChart = () => {
   return (
     <Card className="flex flex-col gap-y-4">
       <div className="flex flex-col gap-y-4">
-        <div className="flex flex-col gap-4 tablet:flex-row">
+        <div className="flex flex-col items-center justify-center gap-4 tablet:flex-row">
           <h2 className="whitespace-nowrap text-center text-lg text-base-content tablet:w-1/2 tablet:text-left tablet:text-2xl lg:w-full">
             Token Fees Volume
           </h2>
