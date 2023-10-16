@@ -9,14 +9,20 @@ interface SearchSelectAssetChartProps {
   assetId: string;
   setAssetId: Dispatch<SetStateAction<string>>;
   folksRouterAssets: BaseAssetInfo[];
+  className?: string;
 }
 
-export const SearchSelectAssetChart = ({ assetId, setAssetId, folksRouterAssets }: SearchSelectAssetChartProps) => {
+export const SearchSelectAssetChart = ({
+  assetId,
+  setAssetId,
+  folksRouterAssets,
+  className,
+}: SearchSelectAssetChartProps) => {
   return (
     <SearchSelect
       value={assetId}
       onValueChange={setAssetId}
-      className="tablet:max-w-xs"
+      className={className}
       icon={() => (
         <AssetIconFallback
           assetId={parseInt(assetId)}

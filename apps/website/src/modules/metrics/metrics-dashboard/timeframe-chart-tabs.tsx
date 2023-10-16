@@ -5,11 +5,12 @@ import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
 interface ChartTabsProps {
   index: number;
   onIndexChange: (index: number) => void;
+  className?: string;
 }
 
-export const TimeframeChartTabs = ({ index, onIndexChange }: ChartTabsProps) => {
+export const TimeframeChartTabs = ({ index, onIndexChange, className }: ChartTabsProps) => {
   return (
-    <TabGroup index={index} onIndexChange={onIndexChange} className="tablet:max-w-xs">
+    <TabGroup index={index} onIndexChange={onIndexChange} className={className}>
       <TabList variant="solid" className="flex flex-1 p-1">
         {timeframes.map((timeframe) => (
           <Tab
