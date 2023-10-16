@@ -68,6 +68,7 @@ const config = {
         "widget-base-1": withOpacity("--widget-base-1"),
         "widget-base-2": withOpacity("--widget-base-2"),
         "widget-base-content": withOpacity("--widget-base-content"),
+        error: withOpacity("--error"),
         // Starlight Colors
         accent,
         gray,
