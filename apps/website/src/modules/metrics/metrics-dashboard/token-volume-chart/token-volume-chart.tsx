@@ -5,14 +5,13 @@ import { useSpinDelay } from "spin-delay";
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterAssetInfo } from "src/modules/metrics/hooks/use-folks-router-asset-info";
 import { useFolksRouterAssets } from "src/modules/metrics/hooks/use-folks-router-assets";
+import { ChartErrorCard } from "src/modules/metrics/metrics-dashboard/chart-error-card";
 import { ChartLegend } from "src/modules/metrics/metrics-dashboard/chart-legend";
 import { ChartSkeleton } from "src/modules/metrics/metrics-dashboard/chart-skeleton";
 import { SearchSelectAssetChart } from "src/modules/metrics/metrics-dashboard/search-select-asset-chart";
 import { TimeframeChartTabs } from "src/modules/metrics/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
 import { getFormattedValue } from "src/modules/metrics/metrics-dashboard/utils";
-
-import AlertTriangleIcon from "~icons/lucide/alert-triangle.svg";
 
 export const TokenVolumeChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
@@ -48,17 +47,7 @@ export const TokenVolumeChart = () => {
   }
 
   if (isFolksRouterAssetsError || isFolksRouterAssetInfoError) {
-    return (
-      <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[26.375rem]">
-        <div className="flex flex-col items-center justify-center gap-y-4">
-          <AlertTriangleIcon className="h-20 w-20 animate-pulse text-error" />
-          <div className="flex flex-col items-center justify-center gap-y-2 text-center text-lg text-base-content tablet:text-left tablet:text-2xl">
-            <p>An error occurred while fetching the data.</p>
-            <p>Please try to reload the page or try again later.</p>
-          </div>
-        </div>
-      </Card>
-    );
+    return <ChartErrorCard className="min-h-[34.75rem] tablet:min-h-[29.75rem]" />;
   }
 
   const tokenVolumeChartData = folksRouterAssetInfo.map(({ periodStartUnix, volumeUSD }) => ({

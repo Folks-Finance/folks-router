@@ -4,12 +4,11 @@ import { useSpinDelay } from "spin-delay";
 
 import { useIsMobile } from "@hooks/use-device-size";
 import { useFolksRouterData } from "src/modules/metrics/hooks/use-folks-router-data";
+import { ChartErrorCard } from "src/modules/metrics/metrics-dashboard/chart-error-card";
 import { ChartLegend } from "src/modules/metrics/metrics-dashboard/chart-legend";
 import { ChartSkeleton } from "src/modules/metrics/metrics-dashboard/chart-skeleton";
 import { TimeframeChartTabs } from "src/modules/metrics/metrics-dashboard/timeframe-chart-tabs";
 import { timeframes } from "src/modules/metrics/metrics-dashboard/timeframes";
-
-import AlertTriangleIcon from "~icons/lucide/alert-triangle.svg";
 
 export const TransactionWalletNumberChart = () => {
   const [selectedTimeframeIndex, setSelectedTimeframeIndex] = useState(1); // Default to DAY
@@ -36,17 +35,7 @@ export const TransactionWalletNumberChart = () => {
   }
 
   if (isFolksRouterDataError) {
-    return (
-      <Card className="flex min-h-[31.375rem] w-full items-center justify-center tablet:min-h-[26.375rem]">
-        <div className="flex flex-col items-center justify-center gap-y-4">
-          <AlertTriangleIcon className="h-20 w-20 animate-pulse text-error" />
-          <div className="flex flex-col items-center justify-center gap-y-2 text-center text-lg text-base-content tablet:text-left tablet:text-2xl">
-            <p>An error occurred while fetching the data.</p>
-            <p>Please try to reload the page or try again later.</p>
-          </div>
-        </div>
-      </Card>
-    );
+    return <ChartErrorCard className="min-h-[31.375rem] tablet:min-h-[26.375rem]" />;
   }
 
   const transactionWalletNumberChartData = folksRouterData.map(
