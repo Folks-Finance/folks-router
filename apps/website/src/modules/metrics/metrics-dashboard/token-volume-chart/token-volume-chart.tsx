@@ -41,9 +41,7 @@ export const TokenVolumeChart = () => {
 
   const folksRouterAssetInfo = data?.tokenData.nodes;
   if (!folksRouterAssets || !folksRouterAssetInfo) {
-    return (
-      <Card className="flex min-h-[34.75rem] w-full items-center justify-center sm:min-h-[31.375rem] tablet:min-h-[26.375rem]" />
-    );
+    return <Card className="flex min-h-[34.75rem] w-full items-center justify-center tablet:min-h-[29.75rem]" />;
   }
 
   if (isFolksRouterAssetsError || isFolksRouterAssetInfoError) {

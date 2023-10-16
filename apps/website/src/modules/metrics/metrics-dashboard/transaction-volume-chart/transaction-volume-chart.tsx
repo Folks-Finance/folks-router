@@ -32,7 +32,7 @@ export const TransactionVolumeChart = () => {
 
   const folksRouterData = data?.folksRouterData.nodes;
   if (!folksRouterData) {
-    return <Card className="flex min-h-[31.375rem] w-full items-center justify-center tablet:min-h-[26.375rem]" />;
+    return <Card className="flex min-h-[31.375rem] w-full items-center justify-center tablet:min-h-[29.375rem]" />;
   }
 
   if (isFolksRouterDataError) {
