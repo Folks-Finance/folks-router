@@ -2,30 +2,11 @@
 import { changeLanguage } from "i18next";
 
 import BaseLayout from "src/layout/base-layout.astro";
+import { MetricsDashboard } from "src/modules/metrics/metrics-dashboard/metrics-dashboard";
 
 changeLanguage("en");
 ---
 
 <BaseLayout title="Metrics">
-  <div id="metrics-wrapper" class="invisible">
-    <h1 class="flex h-full w-full animate-pulse items-center justify-center text-5xl text-base-content">Coming Soon</h1>
-  </div>
+  <MetricsDashboard client:load />
 </BaseLayout>
-
-<script>
-  function calculateDynamicPageHeight() {
-    const header = document.querySelector("header");
-    const footer = document.querySelector("footer");
-    const metricsWrapper = document.getElementById("metrics-wrapper");
-    if (!header || !footer || !metricsWrapper) return;
-
-    metricsWrapper.style.height = `calc(100vh - ${getComputedStyle(header).height} - ${
-      getComputedStyle(footer).height
-    })`;
-    metricsWrapper.classList.remove("invisible");
-    footer.classList.remove("invisible");
-  }
-
-  calculateDynamicPageHeight();
-  window.addEventListener("resize", calculateDynamicPageHeight);
-</script>

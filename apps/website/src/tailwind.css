@@ -26,6 +26,7 @@
   --widget-base-1: 45 45 48;
   --widget-base-2: 37 37 38;
   --widget-base-content: 255 255 255;
+  --error: 248 114 114;
 }
 
 @layer components {
