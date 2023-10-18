@@ -21,7 +21,7 @@ export default defineConfig({
   site: "https://blockchain-italia.github.io",
   integrations: [
     starlight({
-      title: "",
+      title: "Folks Router",
       logo: {
         src: "/src/assets/images/folks-router-logo.png",
       },
