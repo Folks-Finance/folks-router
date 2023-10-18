@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.0.4
+
+### Patch Changes
+
+- [#16](https://github.com/Folks-Finance/folks-router/pull/16) [`1390b00`](https://github.com/Folks-Finance/folks-router/commit/1390b00c8d1b048cffaf35d005c9926857af9798) Thanks [@stefanofa](https://github.com/stefanofa)! - Set sideEffects as false
+
 ## 0.0.3
 
 ### Patch Changes
