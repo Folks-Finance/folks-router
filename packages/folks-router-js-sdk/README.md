@@ -6,7 +6,7 @@ The official JavaScript/TypeScript SDK for Folks Router DEX aggregator.
 
 Install using your package manager of choice.
 
-```bash
+```sh
 # npm
 npm install @folks-router/js-sdk
 

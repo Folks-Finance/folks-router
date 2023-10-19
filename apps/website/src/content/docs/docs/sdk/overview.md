@@ -11,7 +11,7 @@ The Folks Router DEX aggregator SDK provides abstractions to assist you with int
 
 To interact with the SDK install it using your package manager of choice.
 
-```bash
+```sh
 # npm
 npm install @folks-router/js-sdk
 
