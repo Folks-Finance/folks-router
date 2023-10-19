@@ -38,6 +38,25 @@ export default defineConfig({
           label: "Referral Program",
           link: "docs/referral-program",
         },
+        {
+          label: "SDK",
+          items: [
+            { label: "Overview", link: "docs/sdk/overview" },
+            {
+              label: "Methods",
+              items: [
+                {
+                  label: "fetchSwapQuote",
+                  link: "docs/sdk/methods/fetch-swap-quote",
+                },
+                {
+                  label: "prepareSwapTransactions",
+                  link: "docs/sdk/methods/prepare-swap-transactions",
+                },
+              ],
+            },
+          ],
+        },
         ...openAPISidebarGroups,
         {
           label: "Contracts",
