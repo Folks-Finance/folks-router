@@ -1,6 +1,6 @@
 # @folks-router/js-sdk
 
-The official JavaScript/Typescript SDK for Folks Router DEX aggregator.
+The official JavaScript/TypeScript SDK for Folks Router DEX aggregator.
 
 ## Installation
 
@@ -30,24 +30,15 @@ const algodClient = new Algodv2("", "https://mainnet-api.algonode.cloud/", 443);
 const folksRouterClient = new FolksRouterClient(Network.MAINNET);
 
 async function main() {
-  // FETCH SWAP QUOTE
-  const swapQuote = await folksRouterClient.fetchSwapQuote(
-    0, // ALGO ASSET ID
-    31566704, // USDC ASSET ID
-    BigInt(10e6), // SWAP AMOUNT
-    SwapMode.FIXED_INPUT, // SWAP MODE
-  );
+  // Fetch Swap Quote
+  const swapQuote = await folksRouterClient.fetchSwapQuote(0, 31566704, BigInt(10e6), SwapMode.FIXED_INPUT);
 
-  // PREPARE SWAP TRANSACTION
-  const base64txns = await folksRouterClient.prepareSwapTransactions(
-    senderAccount.addr, // USER ADDRESS
-    BigInt(10), // SLIPPAGE
-    swapQuote, // SWAP QUOTE
-  );
+  // Prepare Swap Transactions
+  const base64txns = await folksRouterClient.prepareSwapTransactions(senderAccount.addr, BigInt(10), swapQuote);
   const unsignedTxns = base64txns.map((txn) => decodeUnsignedTransaction(Buffer.from(txn, "base64")));
   const signedTxns = unsignedTxns.map((txn) => txn.signTxn(senderAccount.sk));
 
-  // SUBMIT TRANSACTION
+  // Submit Transaction
   await algodClient.sendRawTransaction(signedTxns).do();
 }
 
