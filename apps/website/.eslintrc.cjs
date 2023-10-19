@@ -21,11 +21,11 @@ const config = {
     "plugin:astro/recommended",
     "plugin:astro/jsx-a11y-recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "prettier",
   ],
   plugins: ["import", "simple-import-sort", "unicorn"],
   rules: {
-    "@tanstack/query/stable-query-client": "error",
     "import/extensions": ["error", "ignorePackages", { js: "never", jsx: "never", ts: "never", tsx: "never" }],
     "import/no-cycle": "warn",
     "import/no-duplicates": ["error"],
