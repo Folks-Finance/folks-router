@@ -15,7 +15,7 @@ prepareSwapTransactions(
 
 ### Returns
 
-Returns a Promise that, when resolved, provides the necessary transactions to perform the swap.
+Returns a `Promise` that, when resolved, provides the necessary transactions to perform the swap.
 
 ```js
 type SwapTransactions = string[]

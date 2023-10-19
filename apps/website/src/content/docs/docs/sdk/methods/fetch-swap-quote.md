@@ -19,7 +19,7 @@ fetchSwapQuote(
 
 ### Returns
 
-Returns a Promise that, when resolved, provides a `SwapQuote` object which contains the following fields:
+Returns a `Promise` that, when resolved, provides a `SwapQuote` object which contains the following fields:
 
 ```js
 interface SwapQuote {
