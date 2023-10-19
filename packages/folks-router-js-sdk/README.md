@@ -17,7 +17,7 @@ pnpm add @folks-router/js-sdk
 
 ## Documentation
 
-Documentation for this SDK is available at [folksrouter.io](https://folksrouter.io/docs/sdk/).
+Documentation for this SDK is available at [folksrouter.io](https://folksrouter.io/docs/sdk/overview/).
 
 ## Usage
 
