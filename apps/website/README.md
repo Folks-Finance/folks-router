@@ -1,10 +1,10 @@
-# Folks Router Frontend
-
 <p align="center">
   <a href="https://folksrouter.io/" target="_blank" rel="noopener">
       <img src="https://folksrouter.io/favicon.png" height="128">
   </a>
 </p>
+
+# Folks Router Frontend
 
 An open source interface for Folks Router.
 

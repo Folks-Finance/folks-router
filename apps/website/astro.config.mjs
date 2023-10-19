@@ -21,7 +21,7 @@ export default defineConfig({
   site: "https://blockchain-italia.github.io",
   integrations: [
     starlight({
-      title: "",
+      title: "Folks Router",
       logo: {
         src: "/src/assets/images/folks-router-logo.png",
       },
@@ -37,6 +37,27 @@ export default defineConfig({
         {
           label: "Referral Program",
           link: "docs/referral-program",
+        },
+        {
+          label: "SDK",
+          collapsed: true,
+          items: [
+            { label: "Overview", link: "docs/sdk/overview" },
+            {
+              label: "Methods",
+              collapsed: true,
+              items: [
+                {
+                  label: "fetchSwapQuote",
+                  link: "docs/sdk/methods/fetch-swap-quote",
+                },
+                {
+                  label: "prepareSwapTransactions",
+                  link: "docs/sdk/methods/prepare-swap-transactions",
+                },
+              ],
+            },
+          ],
         },
         ...openAPISidebarGroups,
         {
