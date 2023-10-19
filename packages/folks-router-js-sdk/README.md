@@ -9,8 +9,10 @@ Install using your package manager of choice.
 ```bash
 # npm
 npm install @folks-router/js-sdk
+
 # yarn
 yarn add @folks-router/js-sdk
+
 # pnpm
 pnpm add @folks-router/js-sdk
 ```
