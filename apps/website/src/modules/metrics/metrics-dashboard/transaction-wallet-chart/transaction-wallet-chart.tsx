@@ -18,13 +18,13 @@ export const TransactionWalletNumberChart = () => {
 
   const {
     data,
-    isLoading: isFolksRouterDataLoading,
+    isPending: isFolksRouterDataPending,
     isError: isFolksRouterDataError,
   } = useFolksRouterData({
     timeframe: selectedTimeframe,
   });
 
-  const isDataLoading = useSpinDelay(isFolksRouterDataLoading, {
+  const isDataPending = useSpinDelay(isFolksRouterDataPending, {
     delay: 0,
     minDuration: 1500,
   });
@@ -68,7 +68,7 @@ export const TransactionWalletNumberChart = () => {
         <TimeframeChartTabs index={selectedTimeframeIndex} onIndexChange={setSelectedTimeframeIndex} />
       </div>
 
-      {isDataLoading ? (
+      {isDataPending ? (
         <div className="flex h-[22.235rem] w-full items-center justify-center tablet:h-[20rem]">
           <ChartSkeleton />
         </div>

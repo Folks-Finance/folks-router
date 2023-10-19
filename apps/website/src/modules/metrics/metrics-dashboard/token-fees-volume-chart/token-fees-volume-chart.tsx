@@ -21,20 +21,20 @@ export const TokenFeesVolumeChart = () => {
 
   const {
     folksRouterAssets,
-    isLoading: isFolksRouterAssetsLoading,
+    isPending: isFolksRouterAssetsPending,
     isError: isFolksRouterAssetsError,
   } = useFolksRouterAssets();
   const selectedTimeframe = timeframes[selectedTimeframeIndex] || timeframes[1];
   const {
     data,
-    isLoading: isFolksRouterAssetInfoLoading,
+    isPending: isFolksRouterAssetInfoPending,
     isError: isFolksRouterAssetInfoError,
   } = useFolksRouterAssetInfo({
     assetId,
     timeframe: selectedTimeframe,
   });
 
-  const isDataLoading = useSpinDelay(isFolksRouterAssetsLoading || isFolksRouterAssetInfoLoading, {
+  const isDataPending = useSpinDelay(isFolksRouterAssetsPending || isFolksRouterAssetInfoPending, {
     delay: 0,
     minDuration: 1500,
   });
@@ -75,7 +75,7 @@ export const TokenFeesVolumeChart = () => {
         <TimeframeChartTabs index={selectedTimeframeIndex} onIndexChange={setSelectedTimeframeIndex} />
       </div>
 
-      {isDataLoading ? (
+      {isDataPending ? (
         <div className="flex h-[22.235rem] w-full items-center justify-center tablet:h-[20rem]">
           <ChartSkeleton />
         </div>
