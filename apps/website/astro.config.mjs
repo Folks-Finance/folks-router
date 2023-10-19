@@ -40,10 +40,12 @@ export default defineConfig({
         },
         {
           label: "SDK",
+          collapsed: true,
           items: [
             { label: "Overview", link: "docs/sdk/overview" },
             {
               label: "Methods",
+              collapsed: true,
               items: [
                 {
                   label: "fetchSwapQuote",
