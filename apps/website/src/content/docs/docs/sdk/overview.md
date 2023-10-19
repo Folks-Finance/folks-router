@@ -9,7 +9,7 @@ The Folks Router DEX aggregator SDK provides abstractions to assist you with int
 
 ### Installation
 
-To interact with the SDK you can install using your package manager of choice.
+To interact with the SDK install it using your package manager of choice.
 
 ```bash
 # npm
