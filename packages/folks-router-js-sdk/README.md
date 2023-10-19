@@ -23,7 +23,7 @@ Documentation for this SDK is available at [folksrouter.io](https://folksrouter.
 
 ## Usage
 
-```js
+```ts
 import { FolksRouterClient, Network, SwapMode } from "@folks-router/js-sdk";
 import { Algodv2, decodeUnsignedTransaction, generateAccount } from "algosdk";
 

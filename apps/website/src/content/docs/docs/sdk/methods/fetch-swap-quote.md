@@ -21,7 +21,7 @@ fetchSwapQuote(
 
 Returns a `Promise` that, when resolved, provides a `SwapQuote` object which contains the following fields:
 
-```js
+```ts
 interface SwapQuote {
   quoteAmount: bigint;
   priceImpact: number;

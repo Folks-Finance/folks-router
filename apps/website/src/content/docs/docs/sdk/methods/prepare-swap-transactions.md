@@ -5,7 +5,7 @@ description: prepareSwapTransactions function.
 
 See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L57).
 
-```js
+```ts
 prepareSwapTransactions(
     userAddress: string,
     slippageBps: number | bigint,
@@ -17,8 +17,8 @@ prepareSwapTransactions(
 
 Returns a `Promise` that, when resolved, provides the necessary transactions to perform the swap.
 
-```js
-type SwapTransactions = string[]
+```ts
+type SwapTransactions = string[];
 ```
 
 ### Parameters
