@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.0.5
+
+### Patch Changes
+
+- [`c9457cf`](https://github.com/Folks-Finance/folks-router/commit/c9457cfbb25b6034bc346edd932007c8d12aad79) Thanks [@stefanofa](https://github.com/stefanofa)! - Update readme
+
 ## 0.0.4
 
 ### Patch Changes
