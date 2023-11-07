@@ -30,7 +30,7 @@ const config = {
     "import/no-cycle": "warn",
     "import/no-duplicates": ["error"],
     "import/no-named-as-default": "off",
-    "import/no-unresolved": ["error", { ignore: ["~icons/*", "astro:assets"] }],
+    "import/no-unresolved": ["error", { ignore: ["~icons/*", "astro:assets", "astro:transitions"] }],
     "import/order": [
       "error",
       {
