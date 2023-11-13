@@ -10,7 +10,7 @@
     "sourceMap": true,
     "isolatedModules": false,
     "exactOptionalPropertyTypes": false,
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "include": ["./src/index.ts", "./examples/*"],
   "exclude": ["dist", "build", "node_modules"]

@@ -1,4 +1,4 @@
-import axios, { AxiosInstance} from "axios";
+import axios, { AxiosInstance } from "axios";
 import { Network, SwapMode, SwapQuote, SwapTransactions } from "./types";
 
 const BASE_URL = "https://api.folksrouter.io";
@@ -18,7 +18,7 @@ export class FolksRouterClient {
 
     // set
     this.network = network;
-    this.api = axios.create({ baseURL: url, headers: { "x-api-key": apiKey }});
+    this.api = axios.create({ baseURL: url, headers: { "x-api-key": apiKey } });
   }
 
   public async fetchSwapQuote(
@@ -40,7 +40,7 @@ export class FolksRouterClient {
         maxGroupSize,
         feeBps,
         referrer,
-      }
+      },
     });
     if (!data.success) throw Error(data.errors);
 
@@ -64,7 +64,7 @@ export class FolksRouterClient {
         userAddress,
         slippageBps,
         txnPayload: swapQuote.txnPayload,
-      }
+      },
     });
     if (!data.success) throw Error(data.errors);
 

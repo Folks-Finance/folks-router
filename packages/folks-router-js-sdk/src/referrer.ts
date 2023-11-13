@@ -1,9 +1,11 @@
 import {
   assignGroupID,
-  decodeAddress, encodeAddress,
+  decodeAddress,
+  encodeAddress,
   encodeUnsignedTransaction,
   LogicSigAccount,
-  SuggestedParams, Transaction
+  SuggestedParams,
+  Transaction,
 } from "algosdk";
 import { ReferrerGroupTransaction } from "./types";
 import { transferAlgoOrAsset } from "./utils";

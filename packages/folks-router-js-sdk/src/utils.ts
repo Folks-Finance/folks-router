@@ -2,7 +2,7 @@ import {
   makeAssetTransferTxnWithSuggestedParams,
   makePaymentTxnWithSuggestedParams,
   SuggestedParams,
-  Transaction
+  Transaction,
 } from "algosdk";
 
 const signer = async () => [];

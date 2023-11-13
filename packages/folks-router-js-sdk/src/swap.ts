@@ -4,7 +4,7 @@ import {
   getApplicationAddress,
   getMethodByName,
   SuggestedParams,
-  Transaction
+  Transaction,
 } from "algosdk";
 import { routerABIContract } from "./abiContracts";
 import { signer, transferAlgoOrAsset } from "./utils";

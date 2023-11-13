@@ -22,4 +22,4 @@ interface SwapQuote {
 
 type SwapTransactions = string[];
 
-export { ReferrerGroupTransaction, Network, SwapMode, SwapQuote, SwapTransactions }
+export { ReferrerGroupTransaction, Network, SwapMode, SwapQuote, SwapTransactions };

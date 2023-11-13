@@ -1,4 +1,4 @@
 import { ABIContract } from "algosdk";
-import routerABI from "./router.json"
+import routerABI from "./router.json";
 
-export const routerABIContract = new ABIContract(routerABI)
+export const routerABIContract = new ABIContract(routerABI);
