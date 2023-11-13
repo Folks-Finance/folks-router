@@ -1,28 +1,51 @@
-<p align="center">
-  <a href="https://folksrouter.io/" target="_blank" rel="noopener">
-      <img src="https://folksrouter.io/og.png" >
-  </a>
-</p>
 
-# Folks Router
+# Folks router : react widget
 
-Folks Router is a DEXs aggregator that allows users to swap tokens across multiple decentralized exchanges (DEXs) on the Algorand blockchain.
+Have you ever dreamt of integrating a crypto swap feature into your website? If so, look no further – this React library empowers you to effortlessly implement a crypto swap with just a single line of code.
 
-Users can get the best possible price for their swaps, as Folks Router will automatically compare prices across various DEXs.
 
-It also supports split routing and multi-swap paths.
+## Installation
 
-## What's inside?
+Install my-project with npm
 
-### `apps/website`
+```bash
+ yarn add folks-router-react-widget
 
-An open source interface for Folks Router build with [Astro](https://github.com/withastro/astro), [React](https://github.com/facebook/react) and [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) which includes:
+ or npm
+ npm install folks-router-react-widget
+ 
+If you haven't already, install the Algorand JS SDK and use-wallet
 
-- [metrics](https://folksrouter.io/metrics/): an analytics page showing stats about Folks Router usage and volumes
-- [docs](https://folksrouter.io/docs/introduction/): Folks Router's documentation
+yarn add algosdk @blockshake/defly-connect @perawallet/connect @daffiwallet/connect  @txnlab/use-wallet
 
-### `packages/folks-router-js-sdk`
+```
+    
+## Demo
 
-The official JavaScript SDK for Folks Router DEXs aggregator.
+Insert gif or link to demo
 
-_**NOTE:** More information on installation, use and examples will be available soon._
+
+## Documentation
+
+
+``` bash
+// import the swap widget component
+
+import { Inter } from 'next/font/google'
+import {SwapWidget} from 'folks-router-react-widget'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export default function Home() {
+  return (
+    <main
+      className={`flex min-h-screen flex-col items-center justify-center  ${inter.className}`}
+    >
+      <SwapWidget theme={`dark`}  />
+
+   </main>
+ 
+
+
+```
+
