@@ -1,0 +1,153 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+
+import DiscordIcon from "~icons/social-icons/discord.svg";
+import FacebookIcon from "~icons/social-icons/facebook.svg";
+import GithubIcon from "~icons/social-icons/github.svg";
+import InstagramIcon from "~icons/social-icons/instagram.svg";
+import LinkedinIcon from "~icons/social-icons/linkedin.svg";
+import MediumIcon from "~icons/social-icons/medium.svg";
+import RedditIcon from "~icons/social-icons/reddit.svg";
+import TelegramIcon from "~icons/social-icons/telegram.svg";
+import XIcon from "~icons/social-icons/x.svg";
+import YoutubeIcon from "~icons/social-icons/youtube.svg";
+
+const socialItems = [
+  {
+    href: "https://discord.com/invite/folksfinance",
+    Icon: DiscordIcon,
+  },
+  {
+    href: "https://twitter.com/folksfinance/",
+    Icon: XIcon,
+  },
+  {
+    href: "https://t.me/FolksfinanceOfficial/",
+    Icon: TelegramIcon,
+  },
+  {
+    href: "https://www.reddit.com/r/FolksFinance/",
+    Icon: RedditIcon,
+  },
+  {
+    href: "https://github.com/Folks-Finance/",
+    Icon: GithubIcon,
+  },
+  {
+    href: "https://folksfinance.medium.com/",
+    Icon: MediumIcon,
+  },
+  {
+    href: "https://www.linkedin.com/company/folksfinance/",
+    Icon: LinkedinIcon,
+  },
+  {
+    href: "https://www.youtube.com/c/FolksFinance/",
+    Icon: YoutubeIcon,
+  },
+  {
+    href: "https://www.facebook.com/folksfinanceofficial/",
+    Icon: FacebookIcon,
+  },
+  {
+    href: "https://www.instagram.com/folksfinance/",
+    Icon: InstagramIcon,
+  },
+];
+---
+
+<div class="flex w-1/2 items-center justify-end tablet:hidden">
+  <!-- Hamburger trigger -->
+  <input type="checkbox" id="hamburger" class="peer/hamburger hidden" />
+  <label
+    for="hamburger"
+    class="flex h-9 w-9 cursor-pointer flex-col justify-center [&>*:nth-child(1)]:w-6/12 [&>*:nth-child(1)]:peer-checked/hamburger:w-1/2 [&>*:nth-child(1)]:peer-checked/hamburger:origin-bottom [&>*:nth-child(1)]:peer-checked/hamburger:translate-x-1 [&>*:nth-child(1)]:peer-checked/hamburger:translate-y-[3px] [&>*:nth-child(1)]:peer-checked/hamburger:rotate-z-45 [&>*:nth-child(2)]:w-full [&>*:nth-child(2)]:peer-checked/hamburger:origin-top [&>*:nth-child(2)]:peer-checked/hamburger:-rotate-z-45 [&>*:nth-child(3)]:w-9/12 [&>*:nth-child(3)]:peer-checked/hamburger:w-1/2 [&>*:nth-child(3)]:peer-checked/hamburger:origin-bottom [&>*:nth-child(3)]:peer-checked/hamburger:translate-x-[16.5px] [&>*:nth-child(3)]:peer-checked/hamburger:translate-y-[-4.25px] [&>*:nth-child(3)]:peer-checked/hamburger:rotate-z-45"
+  >
+    <span class="my-1 h-0.5 bg-base-content transition-all duration-500 ease-[cubic-bezier(0.68,-0.6,0.32,1.6)]"></span>
+    <span class="my-1 h-0.5 bg-base-content transition-all duration-500 ease-[cubic-bezier(0.68,-0.6,0.32,1.6)]"></span>
+    <span class="my-1 h-0.5 bg-base-content transition-all duration-500 ease-[cubic-bezier(0.68,-0.6,0.32,1.6)]"></span>
+  </label>
+
+  <!-- Overlay -->
+  <div
+    class="fixed -right-full top-[4.5rem] z-10 h-[calc(100vh-4.5rem)] w-full overflow-y-auto overflow-x-hidden bg-base-1 px-6 py-3.5 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.93,0.88,0.1,0.8)] peer-checked/hamburger:right-0 peer-checked/hamburger:opacity-100 tablet:hidden"
+  >
+    <nav class="flex flex-col gap-y-5 uppercase">
+      <ul class="flex flex-col gap-y-4">
+        <li class="flex w-full items-center gap-x-2">
+          <h3 class="whitespace-nowrap text-xs tracking-wider text-light-2">
+            {t("navigation-category.navigation")}
+          </h3>
+          <div class="h-[1px] w-full bg-light-2"></div>
+        </li>
+        <li class="text-base text-base-content">
+          <a
+            href={localizePath("/metrics")}
+            class="relative inline-block cursor-pointer transition-all duration-700 before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-0 before:rounded-full before:bg-base-content before:bg-gradient-to-r before:opacity-0 before:transition-all before:duration-700 before:content-[''] hover:before:w-full hover:before:opacity-100"
+          >
+            {t("navigation-item.metrics")}
+          </a>
+        </li>
+        <li class="text-base text-base-content">
+          <a
+            href={localizePath("/docs/introduction")}
+            class="relative inline-block cursor-pointer transition-all duration-700 before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-0 before:rounded-full before:bg-base-content before:bg-gradient-to-r before:opacity-0 before:transition-all before:duration-700 before:content-[''] hover:before:w-full hover:before:opacity-100"
+          >
+            DOCS
+          </a>
+        </li>
+        <li class="text-base text-base-content">
+          <a
+            href="https://github.com/Folks-Finance/folks-router/tree/main/packages/folks-router-js-sdk"
+            target="_blank"
+            rel="noopener"
+            class="relative inline-block cursor-pointer transition-all duration-700 before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-0 before:rounded-full before:bg-base-content before:bg-gradient-to-r before:opacity-0 before:transition-all before:duration-700 before:content-[''] hover:before:w-full hover:before:opacity-100"
+          >
+            SDK
+          </a>
+        </li>
+      </ul>
+      <ul class="flex flex-col gap-y-4">
+        <li class="flex w-full items-center gap-x-2">
+          <h3 class="whitespace-nowrap text-xs tracking-wider text-light-2">Community</h3>
+          <div class="h-[1px] w-full bg-light-2"></div>
+        </li>
+        <li class="grid grid-cols-5 items-center justify-between gap-2">
+          {
+            socialItems.map(({ href, Icon }) => (
+              <div class="flex w-full items-center justify-center">
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener"
+                  class="flex w-fit items-center justify-center p-2 transition-[scale] duration-500 scale-100 hover:scale-125"
+                >
+                  <Icon className="h-6 w-6 text-base-content" />
+                </a>
+              </div>
+            ))
+          }
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<script>
+  function updateBodyOverflow() {
+    const body = document.querySelector("body");
+    const hamburgerCheckbox = document.getElementById("hamburger") as HTMLInputElement;
+
+    hamburgerCheckbox.addEventListener("change", function () {
+      if (!body) return;
+      if (hamburgerCheckbox.checked) {
+        body.classList.add("overflow-y-hidden");
+      } else {
+        body.classList.remove("overflow-y-hidden");
+      }
+    });
+  }
+
+  updateBodyOverflow();
+</script>

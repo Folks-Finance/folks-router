@@ -1,0 +1,104 @@
+---
+import { cn } from "src/utils";
+
+import DiscordIcon from "~icons/social-icons/discord.svg";
+import FacebookIcon from "~icons/social-icons/facebook.svg";
+import GithubIcon from "~icons/social-icons/github.svg";
+import InstagramIcon from "~icons/social-icons/instagram.svg";
+import LinkedinIcon from "~icons/social-icons/linkedin.svg";
+import MediumIcon from "~icons/social-icons/medium.svg";
+import RedditIcon from "~icons/social-icons/reddit.svg";
+import TelegramIcon from "~icons/social-icons/telegram.svg";
+import XIcon from "~icons/social-icons/x.svg";
+import YoutubeIcon from "~icons/social-icons/youtube.svg";
+
+const { class: className } = Astro.props;
+
+const communityItems = [
+  {
+    href: "https://discord.com/invite/folksfinance",
+    Icon: DiscordIcon,
+  },
+  {
+    href: "https://twitter.com/folksfinance/",
+    Icon: XIcon,
+  },
+  {
+    href: "https://t.me/FolksfinanceOfficial/",
+    Icon: TelegramIcon,
+  },
+  {
+    href: "https://www.reddit.com/r/FolksFinance/",
+    Icon: RedditIcon,
+  },
+  {
+    href: "https://github.com/Folks-Finance/",
+    Icon: GithubIcon,
+  },
+  {
+    href: "https://folksfinance.medium.com/",
+    Icon: MediumIcon,
+  },
+  {
+    href: "https://www.linkedin.com/company/folksfinance/",
+    Icon: LinkedinIcon,
+  },
+  {
+    href: "https://www.youtube.com/c/FolksFinance/",
+    Icon: YoutubeIcon,
+  },
+  {
+    href: "https://www.facebook.com/folksfinanceofficial/",
+    Icon: FacebookIcon,
+  },
+  {
+    href: "https://www.instagram.com/folksfinance/",
+    Icon: InstagramIcon,
+  },
+];
+---
+
+<div class={cn("relative", className)}>
+  <input type="checkbox" id="community-dropdown" class="peer/community-checkbox sr-only" />
+  <label
+    class="flex cursor-pointer rounded-md border border-base-content bg-transparent p-3 text-sm uppercase text-base-content transition-[background-color] duration-500 hover:bg-base-content hover:text-base-2 peer-checked/community-checkbox:bg-base-content peer-checked/community-checkbox:text-base-2 peer-focus-visible/community-checkbox:outline peer-focus-visible/community-checkbox:outline-orange-600 peer-focus-visible/community-checkbox:ring peer-focus-visible/community-checkbox:ring-base-content"
+    for="community-dropdown"
+  >
+    Community
+  </label>
+
+  <div
+    class="invisible absolute right-0 top-full grid min-h-[7.5rem] min-w-[17.5rem] grid-cols-5 items-center justify-center gap-3 rounded-md border border-base-content bg-base-1 p-4 opacity-0 drop-shadow-lg transition-all duration-500 ease-[cubic-bezier(0.93,0.88,0.1,0.8)] peer-checked/community-checkbox:visible peer-checked/community-checkbox:top-[calc(100%+0.75rem)] peer-checked/community-checkbox:opacity-100"
+  >
+    {
+      communityItems.map(({ href, Icon }) => (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener"
+          class="flex items-center justify-center p-2 transition-[scale] duration-500 scale-100 hover:scale-125"
+        >
+          <Icon className="h-6 w-6 text-base-content" />
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  function handleClose() {
+    const communityDropdown = document.getElementById("community-dropdown") as HTMLInputElement;
+
+    const communityLabel = document.querySelector("label[for=community-dropdown]");
+    if (!communityLabel) return;
+
+    document.addEventListener("click", (event) => {
+      const { target } = event;
+      if (!target) return;
+
+      if (!communityDropdown.contains(target as Node) && target !== communityLabel) communityDropdown.checked = false;
+    });
+  }
+
+  handleClose();
+</script>

@@ -1,0 +1,17 @@
+{
+  "extends": "tsconfig/base",
+  "compilerOptions": {
+    "lib": ["ES2020", "DOM"],
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "declarationDir": "dist/types",
+    "sourceMap": true,
+    "isolatedModules": false,
+    "exactOptionalPropertyTypes": false,
+    "resolveJsonModule": true,
+  },
+  "include": ["./src/index.ts", "./examples/*"],
+  "exclude": ["dist", "build", "node_modules"]
+}

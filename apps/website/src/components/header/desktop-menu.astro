@@ -1,0 +1,40 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+
+import CommunityDropdown from "@components/header/community-dropdown/community-dropdown.astro";
+---
+
+<nav class="hidden w-1/3 items-center justify-center tablet:flex">
+  <ul class="flex gap-x-12 text-sm uppercase text-base-content">
+    <li>
+      <a
+        href={localizePath("/metrics")}
+        class="relative inline-block cursor-pointer uppercase transition-all duration-700 before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-0 before:rounded-full before:bg-base-content before:bg-gradient-to-r before:opacity-0 before:transition-all before:duration-700 before:content-[''] hover:before:w-full hover:before:opacity-100"
+      >
+        {t("navigation-item.metrics")}
+      </a>
+    </li>
+    <li>
+      <a
+        href={localizePath("/docs/introduction")}
+        class="relative inline-block cursor-pointer uppercase transition-all duration-700 before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-0 before:rounded-full before:bg-base-content before:bg-gradient-to-r before:opacity-0 before:transition-all before:duration-700 before:content-[''] hover:before:w-full hover:before:opacity-100"
+      >
+        DOCS
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://github.com/Folks-Finance/folks-router/tree/main/packages/folks-router-js-sdk"
+        target="_blank"
+        rel="noopener"
+        class="relative inline-block cursor-pointer uppercase transition-all duration-700 before:absolute before:-bottom-0.5 before:left-0 before:h-px before:w-0 before:rounded-full before:bg-base-content before:bg-gradient-to-r before:opacity-0 before:transition-all before:duration-700 before:content-[''] hover:before:w-full hover:before:opacity-100"
+      >
+        SDK
+      </a>
+    </li>
+  </ul>
+</nav>
+<div class="hidden w-1/3 items-center justify-end gap-x-2 tablet:flex">
+  <CommunityDropdown />
+</div>

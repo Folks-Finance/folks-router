@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+
+import FolksRouterLogo from "@assets/images/folks-router-logo.png";
+
+import DesktopMenu from "./desktop-menu.astro";
+import MobileMenu from "./mobile-menu.astro";
+---
+
+<header class="fixed inset-x-0 top-0 z-20 w-full transition-colors duration-300 will-change-[background-color]">
+  <div class="layout-container flex items-center justify-between py-3.5 tablet:py-5">
+    <!-- Logo -->
+    <div class="flex w-1/2 items-center justify-start tablet:w-1/3">
+      <a href={`/`}>
+        <Image src={FolksRouterLogo} alt="Folks Router Logo" class="h-11 w-11 tablet:h-14 tablet:w-14" />
+      </a>
+    </div>
+    <!-- Desktop Menu -->
+    <DesktopMenu />
+    <!-- Mobile Menu Astro Version -->
+    <MobileMenu />
+  </div>
+</header>
+
+<script>
+  //listen for scroll change and set the header background color when scrolling down, when going up to the top again set it to base-2/0
+
+  function changeHeaderBackdropBasedOnScroll(scrollTop: number) {
+    let header = document.querySelector("header");
+    if (!header) return;
+
+    if (scrollTop > 20) {
+      header.classList.remove("bg-transparent");
+      header.classList.add("bg-base-2/70", "backdrop-blur-md");
+    } else {
+      header.classList.remove("bg-base-2/70", "backdrop-blur-md");
+      header.classList.add("bg-transparent");
+    }
+  }
+
+  function updateHeaderBackdropOnScroll() {
+    let ticking = false;
+    let lastKnownScrollPosition = window.scrollY;
+
+    changeHeaderBackdropBasedOnScroll(lastKnownScrollPosition);
+
+    window.addEventListener("scroll", () => {
+      lastKnownScrollPosition = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          changeHeaderBackdropBasedOnScroll(lastKnownScrollPosition);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    });
+  }
+
+  updateHeaderBackdropOnScroll();
+</script>

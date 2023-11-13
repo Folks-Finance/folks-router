@@ -1,0 +1,89 @@
+---
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+
+import HumbleIcon from "~icons/dex-icons/humble.svg";
+import PactIcon from "~icons/dex-icons/pact.svg";
+import TinymanIcon from "~icons/dex-icons/tinyman.svg";
+import ArrowRightIcon from "~icons/lucide/move-right.svg";
+---
+
+<section class="bg-base-2 pb-20 pt-10 tablet:pb-36 tablet:pt-24">
+  <div class="layout-container flex flex-col gap-y-12 tablet:gap-y-16">
+    <div class="flex flex-col items-center justify-between gap-y-10 tablet:flex-row lg:gap-y-0">
+      <div class="flex w-full flex-col gap-y-3 tablet:w-auto lg:gap-y-4">
+        <h2 class="text-3xl text-base-content lg:text-4xl">{t("why-folks-router.title")}</h2>
+        <a
+          href={localizePath("/metrics")}
+          class="group/metrics-button flex h-full items-center justify-start gap-x-3 text-primary"
+        >
+          <span>{t("why-folks-router.button")}</span>
+          <ArrowRightIcon
+            className="w-6 transition-[translate] duration-500 translate-x-0 group-hover/metrics-button:translate-x-2"
+          />
+        </a>
+      </div>
+      <div class="flex w-full justify-between gap-x-4 xs:justify-center tablet:w-auto lg:gap-x-14">
+        <div class="flex flex-col items-center justify-center">
+          <span class="text-3xl font-semibold leading-[3rem] text-base-content lg:text-5xl lg:leading-[3.875rem]">
+            11 990
+          </span>
+          <span class="text-light-1">{t("why-folks-router.pairs")}</span>
+        </div>
+        <!-- Divider -->
+        <div class="min-h-full w-px bg-light-1/30"></div>
+        <!-- -->
+        <div class="flex flex-col items-center justify-center">
+          <span class="text-3xl font-semibold leading-[3rem] text-base-content lg:text-5xl lg:leading-[3.875rem]">
+            424</span
+          >
+          <span class="text-light-1">Assets</span>
+        </div>
+        <!-- Divider -->
+        <div class="min-h-full w-px bg-light-1/30"></div>
+        <!-- -->
+        <div class="flex flex-col items-center justify-center">
+          <span class="text-3xl font-semibold leading-[3rem] text-base-content lg:text-5xl lg:leading-[3.875rem]">
+            202</span
+          >
+          <span class="text-light-1">{t("why-folks-router.liquidity-pools")}</span>
+        </div>
+      </div>
+    </div>
+    <!-- Divider -->
+    <div class="h-px w-full bg-light-1/30"></div>
+    <!-- -->
+    <div class="flex flex-col items-center justify-between gap-x-4 gap-y-7 tablet:flex-row tablet:gap-y-0">
+      <p class="text-center text-2xl text-light-1 tablet:w-1/3 tablet:text-left lg:w-1/4">
+        {t("why-folks-router.paragraph")}
+      </p>
+
+      <div class="grid w-full grid-cols-2 gap-4 xs:w-auto lg:grid-cols-4">
+        <div
+          class="flex items-center justify-start gap-x-4 rounded-xl border border-light-1/30 p-3 tablet:px-4 tablet:py-5"
+        >
+          <PactIcon className="h-6 w-6 tablet:h-10 tablet:w-10" />
+          <span class="text-sm text-base-content tablet:text-lg">Pact</span>
+        </div>
+        <div
+          class="flex items-center justify-start gap-x-4 rounded-xl border border-light-1/30 p-3 tablet:px-4 tablet:py-5"
+        >
+          <TinymanIcon className="h-6 w-6 tablet:h-10 tablet:w-10" />
+          <span class="text-sm text-base-content tablet:text-lg">Tinyman</span>
+        </div>
+        <div
+          class="flex items-center justify-start gap-x-4 rounded-xl border border-light-1/30 p-3 tablet:px-4 tablet:py-5"
+        >
+          <HumbleIcon className="h-6 w-6 tablet:h-10 tablet:w-10" />
+          <span class="text-sm text-base-content tablet:text-lg">Humble</span>
+        </div>
+        <div class="flex items-center justify-start rounded-xl border border-light-1/30 p-3 tablet:px-4 tablet:py-5">
+          <div class="flex items-center gap-x-1 whitespace-nowrap text-sm text-base-content tablet:text-lg">
+            <span class="text-4xl leading-4 text-primary">+</span>
+            {t("why-folks-router.more-coming")}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

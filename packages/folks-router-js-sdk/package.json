@@ -1,0 +1,54 @@
+{
+  "name": "@folks-router/js-sdk",
+  "version": "0.0.5",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Folks-Finance/folks-router.git",
+    "directory": "packages/folks-router-js-sdk"
+  },
+  "homepage": "https://folksrouter.io",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "Folks Router",
+    "Folks Finance",
+    "Algorand"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "example": "ts-node --project tsconfig.json",
+    "check-exports": "check-export-map"
+  },
+  "dependencies": {
+    "algosdk": "^2.6.0",
+    "axios": "^1.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.1",
+    "check-export-map": "^1.3.0",
+    "ts-node": "^10.9.1",
+    "tsconfig": "workspace:*",
+    "tsup": "^7.2.0",
+    "typedoc": "^0.25.1",
+    "typescript": "^5.2.2"
+  },
+  "author": "Folks Finance",
+  "license": "MIT"
+}
