@@ -14,10 +14,10 @@ enum SwapMode {
 }
 
 interface SwapParams {
-  fromAssetId: number,
-  toAssetId: number,
-  amount: number | bigint,
-  swapMode: SwapMode,
+  fromAssetId: number;
+  toAssetId: number;
+  amount: number | bigint;
+  swapMode: SwapMode;
 }
 
 interface SwapQuote {

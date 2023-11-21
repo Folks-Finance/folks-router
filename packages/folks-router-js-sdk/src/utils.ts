@@ -22,7 +22,7 @@ function transferAlgoOrAsset(
     : makePaymentTxnWithSuggestedParams(from, to, amount, undefined, undefined, params);
 }
 
-const ONE_4_DP = BigInt(1e4)
+const ONE_4_DP = BigInt(1e4);
 
 function mulScale(n1: bigint, n2: bigint, scale: bigint): bigint {
   return (n1 * n2) / scale;

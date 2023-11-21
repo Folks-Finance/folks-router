@@ -13,7 +13,7 @@ async function main() {
     toAssetId: 31566704,
     amount: BigInt(10e6),
     swapMode: SwapMode.FIXED_INPUT,
-  }
+  };
 
   // fetch quote
   const quote = await client.fetchSwapQuote(params);
