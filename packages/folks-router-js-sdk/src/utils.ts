@@ -22,4 +22,10 @@ function transferAlgoOrAsset(
     : makePaymentTxnWithSuggestedParams(from, to, amount, undefined, undefined, params);
 }
 
-export { signer, transferAlgoOrAsset };
+const ONE_4_DP = BigInt(1e4)
+
+function mulScale(n1: bigint, n2: bigint, scale: bigint): bigint {
+  return (n1 * n2) / scale;
+}
+
+export { signer, transferAlgoOrAsset, ONE_4_DP, mulScale };

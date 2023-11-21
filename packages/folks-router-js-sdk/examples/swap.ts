@@ -1,5 +1,5 @@
 import { decodeUnsignedTransaction } from "algosdk";
-import { FolksRouterClient, Network, SwapMode } from "../src";
+import { FolksRouterClient, Network, SwapMode, SwapParams } from "../src";
 import { MainnetAlgodClient, sender } from "./config";
 
 async function main() {
@@ -7,11 +7,19 @@ async function main() {
   const algod = MainnetAlgodClient;
   const client = new FolksRouterClient(Network.MAINNET);
 
+  // construct swap params
+  const params: SwapParams = {
+    fromAssetId: 0,
+    toAssetId: 31566704,
+    amount: BigInt(10e6),
+    swapMode: SwapMode.FIXED_INPUT,
+  }
+
   // fetch quote
-  const quote = await client.fetchSwapQuote(0, 31566704, BigInt(10e6), SwapMode.FIXED_INPUT);
+  const quote = await client.fetchSwapQuote(params);
 
   // prepare swap
-  const base64txns = await client.prepareSwapTransactions(user.addr, BigInt(10), quote);
+  const base64txns = await client.prepareSwapTransactions(params, user.addr, BigInt(10), quote);
   const unsignedTxns = base64txns.map((txn) => decodeUnsignedTransaction(Buffer.from(txn, "base64")));
   const signedTxns = unsignedTxns.map((txn) => txn.signTxn(user.sk));
 
