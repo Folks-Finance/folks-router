@@ -29,6 +29,10 @@
           "name": "percent_input_asset"
         },
         {
+          "type": "uint64",
+          "name": "increase_budget"
+        },
+        {
           "type": "(uint64,bool,uint64,uint64,uint64,address,uint64,uint64,address,address,uint64,uint64)[]",
           "name": "forward_path"
         }

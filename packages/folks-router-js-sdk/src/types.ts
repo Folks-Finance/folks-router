@@ -13,6 +13,13 @@ enum SwapMode {
   FIXED_OUTPUT = "FIXED_OUTPUT",
 }
 
+interface SwapParams {
+  fromAssetId: number;
+  toAssetId: number;
+  amount: number | bigint;
+  swapMode: SwapMode;
+}
+
 interface SwapQuote {
   quoteAmount: bigint;
   priceImpact: number;
@@ -22,4 +29,4 @@ interface SwapQuote {
 
 type SwapTransactions = string[];
 
-export { ReferrerGroupTransaction, Network, SwapMode, SwapQuote, SwapTransactions };
+export { ReferrerGroupTransaction, Network, SwapMode, SwapParams, SwapQuote, SwapTransactions };
