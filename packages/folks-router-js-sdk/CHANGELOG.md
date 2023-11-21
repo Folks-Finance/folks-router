@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.1.0
+
+### Minor Changes
+
+- [#23](https://github.com/Folks-Finance/folks-router/pull/23) [`74fbf0c`](https://github.com/Folks-Finance/folks-router/commit/74fbf0cc78432b5204519c267a69e235bbc568c7) Thanks [@gidonkatten](https://github.com/gidonkatten)! - Performs checks on the swap transaction returned by the API
+
 ## 0.0.5
 
 ### Patch Changes
