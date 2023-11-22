@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.1.1
+
+### Patch Changes
+
+- [#25](https://github.com/Folks-Finance/folks-router/pull/25) [`cb40737`](https://github.com/Folks-Finance/folks-router/commit/cb407374342671d5a71a56b55ea484b08951b348) Thanks [@gidonkatten](https://github.com/gidonkatten)! - Add additional checks for rekey and close remainder to for pay/asset transaction
+
 ## 0.1.0
 
 ### Minor Changes
