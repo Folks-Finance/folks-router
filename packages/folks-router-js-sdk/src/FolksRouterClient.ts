@@ -99,6 +99,8 @@ export class FolksRouterClient {
     const swapEndTxn = unsignedTxns[unsignedTxns.length - 1]!;
 
     // send algo/asset
+    if (sendAssetTxn.reKeyTo !== undefined) throw Error("Unexpected rekey");
+    if (sendAssetTxn.closeRemainderTo !== undefined) throw Error("Unexpected close remainder to");
     if (encodeAddress(sendAssetTxn.to.publicKey) !== folksRouterAddr) throw Error("Incorrect receiver");
     if (
       !(fromAssetId === 0 && sendAssetTxn.type == TransactionType.pay) &&
