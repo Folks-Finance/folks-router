@@ -25,4 +25,4 @@ An open source interface for Folks Router build with [Astro](https://github.com/
 
 The official JavaScript SDK for Folks Router DEXs aggregator.
 
-_**NOTE:** More information on installation, use and examples will be available soon._
+For installation instructions, usage guidelines, and examples, please visit this [link](https://github.com/Folks-Finance/folks-router/tree/main/packages/folks-router-js-sdk) to discover more about the SDK.
