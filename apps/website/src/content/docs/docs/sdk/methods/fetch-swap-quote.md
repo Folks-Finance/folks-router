@@ -3,14 +3,11 @@ title: fetchSwapQuote
 description: fetchSwapQuote function.
 ---
 
-See the full code [here](https://github.com/Folks-Finance/folks-router/blob/js-sdk-readme/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L24).
+See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L37).
 
 ```ts
 fetchSwapQuote(
-    fromAssetId: number,
-    toAssetId: number,
-    amount: number | bigint,
-    swapMode: SwapMode,
+    params: SwapParams,
     maxGroupSize?: number,
     feeBps?: number | bigint,
     referrer?: string,
@@ -33,14 +30,8 @@ interface SwapQuote {
 ### Parameters
 
 ```sh
-# The assetId to swap from
-fromAssetId: number
-# The assetId to swap to
-toAssetId: number
-# The swap amount
-amount: number | bigint
-# The swap mode ("FIXED_INPUT" | "FIXED_OUTPUT")
-swapMode: SwapMode
+# The set of parameters used for executing the swap
+params: SwapParams
 # The maximum group size of the txn (min 3, max 16)
 maxGroupSize?: number
 # The fee percentage expressed as fixed percentage of input amount (4 d.p)
