@@ -11,7 +11,7 @@
   // Linting using ESLint.
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "astro"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "eslint.workingDirectories": [
     {
