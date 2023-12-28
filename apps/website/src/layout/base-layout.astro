@@ -1,10 +1,8 @@
 ---
 import "tailwindcss/src/css/preflight.css";
 import "src/tailwind.css";
-import { HeadHrefLangs } from "astro-i18next/components";
 import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
-import i18next from "i18next";
 
 import Footer from "@components/footer/footer.astro";
 import Header from "@components/header/header.astro";
@@ -12,7 +10,7 @@ import Header from "@components/header/header.astro";
 const { title } = Astro.props;
 ---
 
-<html lang={i18next.language}>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <SEO
@@ -49,7 +47,6 @@ const { title } = Astro.props;
         ],
       }}
     />
-    <HeadHrefLangs />
     <ViewTransitions />
   </head>
   <body class="relative overflow-x-hidden bg-base-1 font-sans">

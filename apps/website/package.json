@@ -4,13 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "postinstall": "patch-package",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint .",
-    "i18n:generate": "astro-i18next generate"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@astrojs/react": "^3.0.4",
@@ -25,7 +23,6 @@
     "@types/react-dom": "^18.0.6",
     "astro": "^3.4.0",
     "astro-compress": "^2.1.6",
-    "astro-i18next": "1.0.0-beta.21",
     "astro-seo": "^0.8.0",
     "clsx": "^2.0.0",
     "graphql": "^16.8.1",
@@ -58,7 +55,6 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "eslint-plugin-unicorn": "^48.0.1",
-    "patch-package": "^8.0.0",
     "tailwindcss-3d": "^1.0.1",
     "typescript": "^5.2.2",
     "unplugin-icons": "^0.17.0"

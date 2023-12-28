@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import { t } from "i18next";
 
 import FolksFinanceLogoDesktop from "@assets/images/ff-logo-desktop.svg";
 import FolksFinanceLogoMobile from "@assets/images/ff-logo-mobile.svg";
@@ -56,10 +55,10 @@ import LendIcon from "~icons/manage-your-assets-icons/lend.svg";
       <div class="flex w-full flex-col gap-y-7 tablet:w-1/2 lg:w-5/12">
         <h2 class="flex items-center gap-x-5 text-3xl text-base-content lg:text-4xl lg:leading-[3rem]">
           <Image src={FolksFinanceLogoMobile} alt="Folks Finance Logo" class="h-16 w-16 tablet:hidden" />
-          {t("manage-your-assets.title")}
+           Manage your assets with our ecosystem
         </h2>
         <p class="text-light-1 tablet:text-lg">
-          {t("manage-your-assets.paragraph")}
+          Folks Finance provides a wide range of features to help with a better trade of your DeFi assets.
         </p>
       </div>
     </div>
@@ -68,8 +67,8 @@ import LendIcon from "~icons/manage-your-assets-icons/lend.svg";
         <div class="card-content">
           <LendIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
           <div class="flex flex-col gap-y-2">
-            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-1")}</h3>
-            <p class="text-light-1">{t("manage-your-assets.card-description-1")}</p>
+            <h3 class="text-xl font-semibold text-base-content">Lend</h3>
+            <p class="text-light-1">Earn on deposits by contributing to our markets.</p>
           </div>
         </div>
       </a>
@@ -77,8 +76,8 @@ import LendIcon from "~icons/manage-your-assets-icons/lend.svg";
         <div class="card-content">
           <BorrowIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
           <div class="flex flex-col gap-y-2">
-            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-2")}</h3>
-            <p class="text-light-1">{t("manage-your-assets.card-description-2")}</p>
+            <h3 class="text-xl font-semibold text-base-content">Borrow</h3>
+            <p class="text-light-1">Access instant liquidity for a variety of assets.</p>
           </div>
         </div>
       </a>
@@ -86,8 +85,8 @@ import LendIcon from "~icons/manage-your-assets-icons/lend.svg";
         <div class="card-content">
           <GovernIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
           <div class="flex flex-col gap-y-2">
-            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-3")}</h3>
-            <p class="text-light-1">{t("manage-your-assets.card-description-3")}</p>
+            <h3 class="text-xl font-semibold text-base-content">Govern</h3>
+            <p class="text-light-1">Join our Governance and earn boosted ALGO rewards.</p>
           </div>
         </div>
       </a>
@@ -95,8 +94,8 @@ import LendIcon from "~icons/manage-your-assets-icons/lend.svg";
         <div class="card-content">
           <LearnIcon className="min-h-[3.5rem] min-w-[3.5rem]" />
           <div class="flex flex-col gap-y-2">
-            <h3 class="text-xl font-semibold text-base-content">{t("manage-your-assets.card-title-4")}</h3>
-            <p class="text-light-1">{t("manage-your-assets.card-description-4")}</p>
+            <h3 class="text-xl font-semibold text-base-content">Learn</h3>
+            <p class="text-light-1">Get smart about crypto and DeFi with Folks Academy.</p>
           </div>
         </div>
       </a>
