@@ -3,7 +3,6 @@ import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 import compress from "astro-compress";
-import astroI18next from "astro-i18next";
 import { generateAPI } from "starlight-openapi";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 import Icons from "unplugin-icons/vite";
@@ -80,7 +79,6 @@ export default defineConfig({
     }),
     tailwind({ applyBaseStyles: false }),
     react(),
-    astroI18next(),
     compress(),
     starlightOpenAPI(),
   ],
