@@ -3,17 +3,9 @@ import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 import compress from "astro-compress";
-import { generateAPI } from "starlight-openapi";
+import starlightOpenAPI, { openAPISidebarGroups } from "starlight-openapi";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 import Icons from "unplugin-icons/vite";
-
-const { openAPISidebarGroups, starlightOpenAPI } = await generateAPI([
-  {
-    base: "docs/api",
-    label: "API",
-    schema: "https://api.folksrouter.io/v1/docs-json",
-  },
-]);
 
 // https://astro.build/config
 export default defineConfig({
@@ -76,6 +68,15 @@ export default defineConfig({
       },
       customCss: ["./src/tailwind.css"],
       favicon: "/favicon.png",
+      plugins: [
+        starlightOpenAPI([
+          {
+            base: "docs/api",
+            label: "API",
+            schema: "https://api.folksrouter.io/v1/docs-json",
+          },
+        ]),
+      ],
     }),
     tailwind({ applyBaseStyles: false }),
     react(),
