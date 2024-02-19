@@ -1,7 +1,7 @@
 import react from "@astrojs/react";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
-import { defineConfig } from "astro/config";
+import { defineConfig, squooshImageService } from "astro/config";
 import compress from "astro-compress";
 import starlightOpenAPI, { openAPISidebarGroups } from "starlight-openapi";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
@@ -10,6 +10,9 @@ import Icons from "unplugin-icons/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://blockchain-italia.github.io",
+  image: {
+    service: squooshImageService(),
+  },
   integrations: [
     starlight({
       title: "Folks Router",
