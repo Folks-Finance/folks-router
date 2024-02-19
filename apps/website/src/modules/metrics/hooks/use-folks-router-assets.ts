@@ -35,7 +35,11 @@ const getFolksRouterAssets = async () => {
 };
 
 export const useFolksRouterAssets = () => {
-  const { data: folksRouterAssets, ...rest } = useQuery({
+  const {
+    data: folksRouterAssets,
+    isPending,
+    isError,
+  } = useQuery({
     queryKey: ["folks-router-assets"],
     queryFn: async () => {
       const {
@@ -47,5 +51,5 @@ export const useFolksRouterAssets = () => {
     refetchInterval: 30 * 60 * 1000, // 30 minutes
   });
 
-  return { folksRouterAssets, ...rest };
+  return { folksRouterAssets, isPending, isError };
 };
