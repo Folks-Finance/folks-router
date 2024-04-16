@@ -1,8 +1,8 @@
 import react from "@astrojs/react";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
+import playformCompress from "@playform/compress";
 import { defineConfig, squooshImageService } from "astro/config";
-import compress from "astro-compress";
 import starlightOpenAPI, { openAPISidebarGroups } from "starlight-openapi";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 import Icons from "unplugin-icons/vite";
@@ -36,7 +36,10 @@ export default defineConfig({
           label: "SDK",
           collapsed: true,
           items: [
-            { label: "Overview", link: "docs/sdk/overview" },
+            {
+              label: "Overview",
+              link: "docs/sdk/overview",
+            },
             {
               label: "Methods",
               collapsed: true,
@@ -83,8 +86,8 @@ export default defineConfig({
     }),
     tailwind({ applyBaseStyles: false }),
     react(),
-    compress(),
     starlightOpenAPI(),
+    playformCompress(),
   ],
   vite: {
     plugins: [
