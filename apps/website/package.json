@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "^20.12.2"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -22,7 +25,7 @@
     "@tremor/react": "^3.8.1",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "astro": "^4.6.1",
+    "astro": "^4.6.3",
     "astro-seo": "^0.8.3",
     "clsx": "^2.0.0",
     "graphql": "^16.8.1",
@@ -57,6 +60,5 @@
     "tailwindcss-3d": "^1.0.1",
     "typescript": "^5.2.2",
     "unplugin-icons": "^0.17.0"
-  },
-  "packageManager": "pnpm@8.15.7+sha256.50783dd0fa303852de2dd1557cd4b9f07cb5b018154a6e76d0f40635d6cee019"
+  }
 }
