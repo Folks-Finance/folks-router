@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.18.0
+          node-version-file: package.json
           cache: "pnpm"
 
       - uses: dtinth/setup-github-actions-caching-for-turbo@v1
