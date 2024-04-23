@@ -1,6 +1,9 @@
 {
   "name": "folks-router",
   "private": true,
+  "engines": {
+    "node": "^20.12.2"
+  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
