@@ -22,7 +22,7 @@
     "@tremor/react": "^3.8.1",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "astro": "^4.6.1",
+    "astro": "^4.6.3",
     "astro-seo": "^0.8.3",
     "clsx": "^2.0.0",
     "graphql": "^16.8.1",
