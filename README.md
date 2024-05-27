@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://folksrouter.io/" target="_blank" rel="noopener">
-      <img src="https://folksrouter.io/og.png" >
+      <img src="https://folksrouter.io/og.jpg" >
   </a>
 </p>
 
