@@ -24,7 +24,7 @@ export class FolksRouterClient {
     // construct url
     let url = BASE_URL;
     if (network === Network.TESTNET) url += "/testnet";
-    url += "/v1";
+    url += "/v2";
     if (apiKey !== undefined) {
       url += "/pro";
     }
@@ -34,10 +34,23 @@ export class FolksRouterClient {
     this.api = axios.create({ baseURL: url, headers: { "x-api-key": apiKey } });
   }
 
+  public async fetchUserDiscount(userAddress: string): Promise<number> {
+    const { data } = await this.api.get("/fetch/discount", {
+      params: {
+        network: this.network,
+        userAddress,
+      },
+    });
+    if (!data.success) throw Error(data.errors);
+
+    return data.result;
+  }
+
   public async fetchSwapQuote(
     params: SwapParams,
     maxGroupSize?: number,
     feeBps?: number | bigint,
+    userFeeDiscount?: number | bigint,
     referrer?: string,
   ): Promise<SwapQuote> {
     const { fromAssetId, toAssetId, amount, swapMode } = params;
@@ -51,6 +64,7 @@ export class FolksRouterClient {
         type: swapMode,
         maxGroupSize,
         feeBps,
+        userFeeDiscount,
         referrer,
       },
     });
