@@ -3,13 +3,14 @@ title: fetchSwapQuote
 description: fetchSwapQuote function.
 ---
 
-See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L37).
+See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L49).
 
 ```ts
 fetchSwapQuote(
     params: SwapParams,
     maxGroupSize?: number,
     feeBps?: number | bigint,
+    userFeeDiscount?: number | bigint,
     referrer?: string,
 ): Promise<SwapQuote>
 ```

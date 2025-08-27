@@ -42,6 +42,10 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
+                  label: "fetchUserDiscount",
+                  link: "docs/sdk/methods/fetch-user-discount",
+                },
+                {
                   label: "fetchSwapQuote",
                   link: "docs/sdk/methods/fetch-swap-quote",
                 },
@@ -76,7 +80,7 @@ export default defineConfig({
           {
             base: "docs/api",
             label: "API",
-            schema: "https://api.folksrouter.io/v1/docs-json",
+            schema: "https://api.folksrouter.io/v2/docs-json",
           },
         ]),
       ],
