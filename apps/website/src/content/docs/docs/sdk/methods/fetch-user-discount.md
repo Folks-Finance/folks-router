@@ -1,6 +1,6 @@
 ---
-title: fetchSwapQuote
-description: fetchSwapQuote function.
+title: fetchUserDiscount
+description: fetchUserDiscount function.
 ---
 
 See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L37).
