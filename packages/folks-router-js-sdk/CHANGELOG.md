@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.2.0
+
+### Minor Changes
+
+- [#38](https://github.com/Folks-Finance/folks-router/pull/38) [`4140b4f`](https://github.com/Folks-Finance/folks-router/commit/4140b4feed6ef74eeb9e975a0cc7cf0ddc6c9ba8) Thanks [@gidonkatten](https://github.com/gidonkatten)! - New version of Folks Router which supports discount on user fees
+
 ## 0.1.1
 
 ### Patch Changes
