@@ -2,6 +2,18 @@
   "name": "router",
   "methods": [
     {
+      "name": "get_user_discount",
+      "args": [
+        {
+          "type": "address",
+          "name": "user"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      }
+    },
+    {
       "name": "opt_into_assets",
       "args": [
         {

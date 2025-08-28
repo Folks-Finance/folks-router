@@ -1,3 +1,3 @@
-const TestnetFolksRouterAppId = 430586725;
+const TestnetFolksRouterAppId = 744572070;
 
 export { TestnetFolksRouterAppId };
