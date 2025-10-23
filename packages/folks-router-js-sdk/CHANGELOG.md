@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.3.1
+
+### Patch Changes
+
+- [#41](https://github.com/Folks-Finance/folks-router/pull/41) [`a0209b6`](https://github.com/Folks-Finance/folks-router/commit/a0209b62f550785068133c899efa9fbc28d510a4) Thanks [@gidonkatten](https://github.com/gidonkatten)! - fix incorrect sender check
+
 ## 0.3.0
 
 ### Minor Changes
