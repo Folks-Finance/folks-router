@@ -35,7 +35,7 @@ export function checkSwapTransactions(
   // send algo/asset
   if (sendAssetTxn.reKeyTo !== undefined) throw Error("Unexpected rekey");
   if (sendAssetTxn.closeRemainderTo !== undefined) throw Error("Unexpected close remainder to");
-  if (sendAssetTxn.from.publicKey !== decodeAddress(userAddress).publicKey) throw Error("Incorrect sender");
+  if (encodeAddress(sendAssetTxn.from.publicKey) !== userAddress) throw Error("Incorrect sender");
   if (encodeAddress(sendAssetTxn.to.publicKey) !== folksRouterAddr) throw Error("Incorrect receiver");
   if (
     !(fromAssetId === 0 && sendAssetTxn.type == TransactionType.pay) &&
@@ -46,7 +46,7 @@ export function checkSwapTransactions(
 
   // swap forward txns
   swapForwardTxns.forEach((txn, i) => {
-    if (txn.from.publicKey !== decodeAddress(userAddress).publicKey) throw Error("Incorrect sender");
+    if (encodeAddress(txn.from.publicKey) !== userAddress) throw Error("Incorrect sender");
     if (txn.appIndex !== folksRouterAppId) throw Error("Incorrect application index");
     if (txn.type !== TransactionType.appl && txn.appOnComplete !== OnApplicationComplete.NoOpOC)
       throw Error("Incorrect transaction type");
@@ -55,7 +55,7 @@ export function checkSwapTransactions(
   });
 
   // receive algo/asset
-  if (swapEndTxn.from.publicKey !== decodeAddress(userAddress).publicKey) throw Error("Incorrect sender");
+  if (encodeAddress(swapEndTxn.from.publicKey) !== userAddress) throw Error("Incorrect sender");
   if (swapEndTxn.appIndex !== folksRouterAppId) throw Error("Incorrect application index");
   if (swapEndTxn.type !== TransactionType.appl && swapEndTxn.appOnComplete !== OnApplicationComplete.NoOpOC)
     throw Error("Incorrect transaction type");
