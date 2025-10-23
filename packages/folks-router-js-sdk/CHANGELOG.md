@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.3.0
+
+### Minor Changes
+
+- [`f12bd34`](https://github.com/Folks-Finance/folks-router/commit/f12bd34a985fee76f52bbcc56a8d12f283c6e3b7) Thanks [@gidonkatten](https://github.com/gidonkatten)! - New version of Folks Router with custom fee earner
+
 ## 0.2.0
 
 ### Minor Changes
