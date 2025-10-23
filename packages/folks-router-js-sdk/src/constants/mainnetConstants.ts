@@ -1,3 +1,3 @@
-const MainnetFolksRouterAppId = 3179305757;
+const MainnetFolksRouterAppId = 3279848327;
 
 export { MainnetFolksRouterAppId };

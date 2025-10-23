@@ -1,3 +1,4 @@
+export * from "./checks";
 export * from "./referrer";
 export * from "./swap";
 export * from "./types";

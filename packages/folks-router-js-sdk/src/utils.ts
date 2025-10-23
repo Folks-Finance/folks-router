@@ -1,6 +1,6 @@
 import {
-  makeAssetTransferTxnWithSuggestedParams,
-  makePaymentTxnWithSuggestedParams,
+  makeAssetTransferTxnWithSuggestedParamsFromObject,
+  makePaymentTxnWithSuggestedParamsFromObject,
   SuggestedParams,
   Transaction,
 } from "algosdk";
@@ -18,8 +18,14 @@ function transferAlgoOrAsset(
   params: SuggestedParams,
 ): Transaction {
   return assetId !== 0
-    ? makeAssetTransferTxnWithSuggestedParams(from, to, undefined, undefined, amount, undefined, assetId, params)
-    : makePaymentTxnWithSuggestedParams(from, to, amount, undefined, undefined, params);
+    ? makeAssetTransferTxnWithSuggestedParamsFromObject({
+        from,
+        to,
+        amount,
+        suggestedParams: params,
+        assetIndex: assetId,
+      })
+    : makePaymentTxnWithSuggestedParamsFromObject({ from, to, amount, suggestedParams: params });
 }
 
 const ONE_4_DP = BigInt(1e4);
