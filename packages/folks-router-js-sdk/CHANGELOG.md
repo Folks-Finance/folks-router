@@ -1,5 +1,15 @@
 # @folks-router/js-sdk
 
+## 0.4.0
+
+### Minor Changes
+
+- [#43](https://github.com/Folks-Finance/folks-router/pull/43) [`c5cb7ef`](https://github.com/Folks-Finance/folks-router/commit/c5cb7efb9efcc302fbfa80f64185430332ea6bd9) Thanks [@gidonkatten](https://github.com/gidonkatten)! - migrate to algosdk v3
+
+### Patch Changes
+
+- [#45](https://github.com/Folks-Finance/folks-router/pull/45) [`59f8233`](https://github.com/Folks-Finance/folks-router/commit/59f8233012443687cbf8eec3c4665c5d302a56d8) Thanks [@gidonkatten](https://github.com/gidonkatten)! - add check for asset close to
+
 ## 0.3.1
 
 ### Patch Changes
