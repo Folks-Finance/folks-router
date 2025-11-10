@@ -17,7 +17,7 @@ function prepareEnableAssetToBeSwapped(
 ): Transaction[] {
   // payment txn
   const amount = assetIds.length * 0.1e6;
-  const paymentTxn = transferAlgoOrAsset(0, senderAddr, getApplicationAddress(appId), amount, params);
+  const paymentTxn = transferAlgoOrAsset(0, senderAddr, getApplicationAddress(appId).toString(), amount, params);
 
   // opt in txn
   const atc = new AtomicTransactionComposer();

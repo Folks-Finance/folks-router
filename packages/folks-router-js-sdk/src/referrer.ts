@@ -27,7 +27,7 @@ function getReferrerLogicSig(referrerAddr: string): LogicSigAccount {
 const buildReferrerGroupTransaction = (txns: Transaction[], lsig: LogicSigAccount): ReferrerGroupTransaction =>
   assignGroupID(txns).map((txn) => ({
     unsignedTxn: encodeUnsignedTransaction(txn),
-    lsig: encodeAddress(txn.from.publicKey) === lsig.address() ? lsig.toByte() : undefined,
+    lsig: encodeAddress(txn.sender.publicKey) === lsig.address().toString() ? lsig.toByte() : undefined,
   }));
 
 function prepareReferrerOptIntoAsset(
@@ -40,8 +40,14 @@ function prepareReferrerOptIntoAsset(
 
   // generate transactions
   const MIN_BALANCE = BigInt(0.1e6);
-  const minBalancePayment = transferAlgoOrAsset(0, senderAddr, lsig.address(), MIN_BALANCE, { ...params, fee: 2000 });
-  const assetOptIn = transferAlgoOrAsset(assetId, lsig.address(), lsig.address(), 0, { ...params, fee: 0 });
+  const minBalancePayment = transferAlgoOrAsset(0, senderAddr, lsig.address().toString(), MIN_BALANCE, {
+    ...params,
+    fee: 2000,
+  });
+  const assetOptIn = transferAlgoOrAsset(assetId, lsig.address().toString(), lsig.address().toString(), 0, {
+    ...params,
+    fee: 0,
+  });
 
   // group, encode and attach lsig
   return buildReferrerGroupTransaction([minBalancePayment, assetOptIn], lsig);
@@ -58,7 +64,7 @@ function prepareClaimReferrerFees(
 
   // generate transactions
   const groupFeePayment = transferAlgoOrAsset(0, senderAddr, senderAddr, 0, { ...params, fee: 2000 });
-  const claim = transferAlgoOrAsset(assetId, lsig.address(), referrerAddr, amount, { ...params, fee: 0 });
+  const claim = transferAlgoOrAsset(assetId, lsig.address().toString(), referrerAddr, amount, { ...params, fee: 0 });
 
   // group, encode and attach lsig
   return buildReferrerGroupTransaction([groupFeePayment, claim], lsig);

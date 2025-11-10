@@ -19,7 +19,7 @@ async function main() {
   const quote = await client.fetchSwapQuote(params);
 
   // prepare swap
-  const base64txns = await client.prepareSwapTransactions(params, user.addr, BigInt(10), quote);
+  const base64txns = await client.prepareSwapTransactions(params, user.addr.toString(), BigInt(10), quote);
   const unsignedTxns = base64txns.map((txn) => decodeUnsignedTransaction(Buffer.from(txn, "base64")));
   const signedTxns = unsignedTxns.map((txn) => txn.signTxn(user.sk));
 
