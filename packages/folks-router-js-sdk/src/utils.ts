@@ -12,20 +12,20 @@ const signer = async () => [];
  */
 function transferAlgoOrAsset(
   assetId: number,
-  from: string,
-  to: string,
+  sender: string,
+  receiver: string,
   amount: number | bigint,
   params: SuggestedParams,
 ): Transaction {
   return assetId !== 0
     ? makeAssetTransferTxnWithSuggestedParamsFromObject({
-        from,
-        to,
+        sender,
+        receiver,
         amount,
         suggestedParams: params,
         assetIndex: assetId,
       })
-    : makePaymentTxnWithSuggestedParamsFromObject({ from, to, amount, suggestedParams: params });
+    : makePaymentTxnWithSuggestedParamsFromObject({ sender, receiver, amount, suggestedParams: params });
 }
 
 const ONE_4_DP = BigInt(1e4);

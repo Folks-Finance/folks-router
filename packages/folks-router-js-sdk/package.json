@@ -37,7 +37,7 @@
     "check-exports": "check-export-map"
   },
   "dependencies": {
-    "algosdk": "^2.9.0",
+    "algosdk": "^3.5.2",
     "axios": "^1.11.0"
   },
   "devDependencies": {

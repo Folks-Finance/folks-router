@@ -1,6 +1,5 @@
 import {
   ABIType,
-  decodeAddress,
   encodeAddress,
   getApplicationAddress,
   OnApplicationComplete,
@@ -33,40 +32,53 @@ export function checkSwapTransactions(
   const swapEndTxn = unsignedTxns[unsignedTxns.length - 1]!;
 
   // send algo/asset
-  if (sendAssetTxn.reKeyTo !== undefined) throw Error("Unexpected rekey");
-  if (sendAssetTxn.closeRemainderTo !== undefined) throw Error("Unexpected close remainder to");
-  if (encodeAddress(sendAssetTxn.from.publicKey) !== userAddress) throw Error("Incorrect sender");
-  if (encodeAddress(sendAssetTxn.to.publicKey) !== folksRouterAddr) throw Error("Incorrect receiver");
+  if (sendAssetTxn.rekeyTo !== undefined) throw Error("Unexpected rekey");
+  if (sendAssetTxn.payment?.closeRemainderTo !== undefined) throw Error("Unexpected close remainder to");
+  if (encodeAddress(sendAssetTxn.sender.publicKey) !== userAddress) throw Error("Incorrect sender");
+  if (sendAssetTxn.payment && encodeAddress(sendAssetTxn.payment.receiver.publicKey) !== folksRouterAddr.toString())
+    throw Error("Incorrect receiver");
+  if (
+    sendAssetTxn.assetTransfer &&
+    encodeAddress(sendAssetTxn.assetTransfer.receiver.publicKey) !== folksRouterAddr.toString()
+  )
+    throw Error("Incorrect receiver");
   if (
     !(fromAssetId === 0 && sendAssetTxn.type == TransactionType.pay) &&
-    !(fromAssetId === sendAssetTxn.assetIndex && sendAssetTxn.type === TransactionType.axfer)
+    !(
+      sendAssetTxn.type === TransactionType.axfer &&
+      sendAssetTxn.assetTransfer &&
+      BigInt(fromAssetId) === sendAssetTxn.assetTransfer.assetIndex
+    )
   )
     throw Error("Sending incorrect algo/asset");
-  const sendAmount = BigInt(sendAssetTxn.amount);
+  const sendAmount = sendAssetTxn.payment ? sendAssetTxn.payment.amount : sendAssetTxn.assetTransfer!.amount;
 
   // swap forward txns
   swapForwardTxns.forEach((txn, i) => {
-    if (encodeAddress(txn.from.publicKey) !== userAddress) throw Error("Incorrect sender");
-    if (txn.appIndex !== folksRouterAppId) throw Error("Incorrect application index");
-    if (txn.type !== TransactionType.appl && txn.appOnComplete !== OnApplicationComplete.NoOpOC)
+    if (encodeAddress(txn.sender.publicKey) !== userAddress) throw Error("Incorrect sender");
+    if (txn.applicationCall?.appIndex !== BigInt(folksRouterAppId)) throw Error("Incorrect application index");
+    if (txn.type !== TransactionType.appl && txn.applicationCall.onComplete !== OnApplicationComplete.NoOpOC)
       throw Error("Incorrect transaction type");
-    const swapForwardSelector = uint8ArrayToHex(txn.appArgs!.at(0)!);
+    const swapForwardSelector = uint8ArrayToHex(txn.applicationCall.appArgs.at(0)!);
     if (swapForwardSelector !== getHexSelector("swap_forward")) throw Error("Incorrect selector");
   });
 
   // receive algo/asset
-  if (encodeAddress(swapEndTxn.from.publicKey) !== userAddress) throw Error("Incorrect sender");
-  if (swapEndTxn.appIndex !== folksRouterAppId) throw Error("Incorrect application index");
-  if (swapEndTxn.type !== TransactionType.appl && swapEndTxn.appOnComplete !== OnApplicationComplete.NoOpOC)
+  if (encodeAddress(swapEndTxn.sender.publicKey) !== userAddress) throw Error("Incorrect sender");
+  if (swapEndTxn.applicationCall?.appIndex !== BigInt(folksRouterAppId)) throw Error("Incorrect application index");
+  if (
+    swapEndTxn.type !== TransactionType.appl &&
+    swapEndTxn.applicationCall.onComplete !== OnApplicationComplete.NoOpOC
+  )
     throw Error("Incorrect transaction type");
-  const swapEndSelector = uint8ArrayToHex(swapEndTxn.appArgs!.at(0)!);
+  const swapEndSelector = uint8ArrayToHex(swapEndTxn.applicationCall.appArgs.at(0)!);
   const isFixedInput = swapEndSelector === getHexSelector("fi_end_swap");
   const isFixedOutput = swapEndSelector === getHexSelector("fo_end_swap");
   if ((isFixedInput && swapMode !== SwapMode.FIXED_INPUT) || (isFixedOutput && swapMode !== SwapMode.FIXED_OUTPUT))
     throw Error("Incorrect swap mode");
-  if (ABIType.from("uint64").decode(swapEndTxn.appArgs!.at(1)!) !== BigInt(toAssetId))
+  if (ABIType.from("uint64").decode(swapEndTxn.applicationCall.appArgs.at(1)!) !== BigInt(toAssetId))
     throw Error("Receiving incorrect algo/asset");
-  const receiveAmount = ABIType.from("uint64").decode(swapEndTxn.appArgs!.at(2)!) as bigint;
+  const receiveAmount = ABIType.from("uint64").decode(swapEndTxn.applicationCall.appArgs.at(2)!) as bigint;
 
   // check amounts
   const slippageAmount = mulScale(swapQuote.quoteAmount, BigInt(slippageBps), ONE_4_DP);
