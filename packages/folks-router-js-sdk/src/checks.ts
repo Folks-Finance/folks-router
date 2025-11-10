@@ -34,6 +34,7 @@ export function checkSwapTransactions(
   // send algo/asset
   if (sendAssetTxn.rekeyTo !== undefined) throw Error("Unexpected rekey");
   if (sendAssetTxn.payment?.closeRemainderTo !== undefined) throw Error("Unexpected close remainder to");
+  if (sendAssetTxn.assetTransfer?.closeRemainderTo !== undefined) throw Error("Unexpected close remainder to");
   if (encodeAddress(sendAssetTxn.sender.publicKey) !== userAddress) throw Error("Incorrect sender");
   if (sendAssetTxn.payment && encodeAddress(sendAssetTxn.payment.receiver.publicKey) !== folksRouterAddr.toString())
     throw Error("Incorrect receiver");
