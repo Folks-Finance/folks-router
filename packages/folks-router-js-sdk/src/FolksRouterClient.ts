@@ -32,7 +32,7 @@ export class FolksRouterClient {
     if (!data.success) throw Error(data.errors);
 
     // @ts-ignore
-    data.result.tiers.map(({ amount, discount }) => ({ amount: BigInt(amount), discount }));
+    data.result.tiers = data.result.tiers.map(({ amount, discount }) => ({ amount: BigInt(amount), discount }));
 
     return data.result;
   }
