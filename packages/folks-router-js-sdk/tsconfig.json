@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/base",
+  "extends": "../tsconfig/base",
   "compilerOptions": {
     "lib": ["ES2020", "DOM"],
     "target": "ES2020",

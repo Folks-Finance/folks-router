@@ -3,7 +3,7 @@ title: fetchSwapQuote
 description: fetchSwapQuote function.
 ---
 
-See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L49).
+See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L52).
 
 ```ts
 fetchSwapQuote(

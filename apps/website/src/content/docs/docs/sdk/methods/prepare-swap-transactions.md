@@ -3,7 +3,7 @@ title: prepareSwapTransactions
 description: prepareSwapTransactions function.
 ---
 
-See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L83).
+See the full code [here](https://github.com/Folks-Finance/folks-router/blob/main/packages/folks-router-js-sdk/src/FolksRouterClient.ts#L86).
 
 ```ts
 prepareSwapTransactions(
