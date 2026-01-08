@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.5.0
+
+### Minor Changes
+
+- [#46](https://github.com/Folks-Finance/folks-router/pull/46) [`aebc5f3`](https://github.com/Folks-Finance/folks-router/commit/aebc5f39b0bf8be0413d9d1b6ae717cbdac47918) Thanks [@gidonkatten](https://github.com/gidonkatten)! - new method to fetch discount tiers
+
 ## 0.4.0
 
 ### Minor Changes
