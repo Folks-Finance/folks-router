@@ -8,6 +8,16 @@ enum Network {
   TESTNET = "testnet",
 }
 
+export type Tier = {
+  amount: bigint;
+  discount: number; // 0 d.p. (20=20%)
+};
+
+export type DiscountTiers = {
+  assetId: number;
+  tiers: Array<Tier>;
+};
+
 enum SwapMode {
   FIXED_INPUT = "FIXED_INPUT",
   FIXED_OUTPUT = "FIXED_OUTPUT",

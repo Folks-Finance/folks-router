@@ -1,6 +1,6 @@
 import { decodeUnsignedTransaction, Transaction } from "algosdk";
 import axios, { AxiosInstance } from "axios";
-import { Network, SwapParams, SwapQuote, SwapTransactions } from "./types";
+import { DiscountTiers, Network, SwapParams, SwapQuote, SwapTransactions, Tier } from "./types";
 import { checkSwapTransactions } from "./checks";
 
 const BASE_URL = "https://api.folksrouter.io";
@@ -21,6 +21,20 @@ export class FolksRouterClient {
     // set
     this.network = network;
     this.api = axios.create({ baseURL: url, headers: { "x-api-key": apiKey } });
+  }
+
+  public async fetchDiscountTiers(): Promise<DiscountTiers> {
+    const { data } = await this.api.get("/fetch/tiers", {
+      params: {
+        network: this.network,
+      },
+    });
+    if (!data.success) throw Error(data.errors);
+
+    // @ts-ignore
+    data.result.tiers.map(({ amount, discount }) => ({ amount: BigInt(amount), discount }));
+
+    return data.result;
   }
 
   public async fetchUserDiscount(userAddress: string): Promise<number> {

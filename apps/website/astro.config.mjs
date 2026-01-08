@@ -42,6 +42,10 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
+                  label: "fetchDiscountTiers",
+                  link: "docs/sdk/methods/fetch-discount-tiers",
+                },
+                {
                   label: "fetchUserDiscount",
                   link: "docs/sdk/methods/fetch-user-discount",
                 },
