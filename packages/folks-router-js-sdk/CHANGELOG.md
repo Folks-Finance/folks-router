@@ -1,5 +1,11 @@
 # @folks-router/js-sdk
 
+## 0.5.1
+
+### Patch Changes
+
+- [#48](https://github.com/Folks-Finance/folks-router/pull/48) [`d16fe30`](https://github.com/Folks-Finance/folks-router/commit/d16fe30f8be0814e5256bf004a78629ae923fd5e) Thanks [@gidonkatten](https://github.com/gidonkatten)! - update worflow with oicd
+
 ## 0.5.0
 
 ### Minor Changes
