@@ -2,7 +2,7 @@
   "name": "folks-router",
   "private": true,
   "engines": {
-    "node": "^20.12.2"
+    "node": "^24.0.0"
   },
   "scripts": {
     "build": "turbo run build",
